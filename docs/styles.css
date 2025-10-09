@@ -480,3 +480,120 @@ h3 {
     padding-top: 90px;
   }
 }
+/* Recruit & About pages */
+.breadcrumb {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.breadcrumb a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: var(--accent);
+}
+
+.page-header {
+  max-width: 720px;
+}
+
+.timeline {
+  counter-reset: step;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.timeline li {
+  position: relative;
+  padding: 16px 16px 16px 52px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(10, 21, 60, 0.06);
+}
+
+.timeline li::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+}
+
+.list-check {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.list-check li {
+  position: relative;
+  padding-left: 28px;
+}
+
+.list-check li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.company-grid dl {
+  display: grid;
+  gap: 16px;
+}
+
+.company-grid dl div {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 16px;
+  align-items: baseline;
+}
+
+.company-grid dt {
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.company-grid dd {
+  margin: 0;
+}
+
+.message {
+  max-width: 720px;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(10, 21, 60, 0.08);
+}
+
+.message .signature {
+  margin-top: 24px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.tag--en {
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
