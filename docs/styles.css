@@ -597,3 +597,56 @@ h3 {
   text-transform: uppercase;
 }
 
+
+/* Discount Offer Section */
+.discount-offer {
+  background: linear-gradient(135deg, var(--accent), #58b2ff);
+  color: #fff;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.offer-details {
+  cursor: pointer;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.offer-summary {
+  font-size: clamp(18px, 4vw, 24px);
+  font-weight: 800;
+  list-style: none;
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  display: inline-block;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.offer-summary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.02);
+}
+
+.offer-summary::-webkit-details-marker {
+  display: none;
+}
+
+.offer-text {
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff !important; /* Override muted color if inherited */
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
