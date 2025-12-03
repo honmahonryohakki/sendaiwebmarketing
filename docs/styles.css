@@ -480,6 +480,7 @@ h3 {
     padding-top: 90px;
   }
 }
+
 /* Recruit & About pages */
 .breadcrumb {
   display: flex;
@@ -632,11 +633,29 @@ h3 {
   display: none;
 }
 
+.offer-summary::after {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  margin-left: 12px;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.3s ease;
+  vertical-align: middle;
+}
+
+.offer-details[open] .offer-summary::after {
+  transform: rotate(225deg) translateY(-2px);
+}
+
 .offer-text {
   margin-top: 16px;
   font-size: 18px;
   font-weight: 600;
-  color: #fff !important; /* Override muted color if inherited */
+  color: #fff !important;
+  /* Override muted color if inherited */
   animation: fadeIn 0.3s ease-out;
 }
 
@@ -645,6 +664,7 @@ h3 {
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
