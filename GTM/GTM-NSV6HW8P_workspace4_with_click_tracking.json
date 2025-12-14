@@ -1,0 +1,233 @@
+{
+    "exportFormatVersion": 2,
+    "exportTime": "2025-12-01 05:14:46",
+    "containerVersion": {
+        "path": "accounts/6315860902/containers/231548752/versions/0",
+        "accountId": "6315860902",
+        "containerId": "231548752",
+        "containerVersionId": "0",
+        "container": {
+            "path": "accounts/6315860902/containers/231548752",
+            "accountId": "6315860902",
+            "containerId": "231548752",
+            "name": "sendaimarketing",
+            "publicId": "GTM-NSV6HW8P",
+            "usageContext": [
+                "WEB"
+            ],
+            "fingerprint": "1759564227835",
+            "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/6315860902/containers/231548752/workspaces?apiLink=container",
+            "features": {
+                "supportUserPermissions": true,
+                "supportEnvironments": true,
+                "supportWorkspaces": true,
+                "supportGtagConfigs": false,
+                "supportBuiltInVariables": true,
+                "supportClients": false,
+                "supportFolders": true,
+                "supportTags": true,
+                "supportTemplates": true,
+                "supportTriggers": true,
+                "supportVariables": true,
+                "supportVersions": true,
+                "supportZones": true,
+                "supportTransformations": false
+            },
+            "tagIds": [
+                "GTM-NSV6HW8P"
+            ]
+        },
+        "tag": [
+            {
+                "accountId": "6315860902",
+                "containerId": "231548752",
+                "tagId": "4",
+                "name": "Google タグ",
+                "type": "googtag",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "tagId",
+                        "value": "{{定数_G-XY0BGLETWF}}"
+                    }
+                ],
+                "fingerprint": "1764199785072",
+                "firingTriggerId": [
+                    "2147479553"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6315860902",
+                "containerId": "231548752",
+                "tagId": "5",
+                "name": "GA4イベント - 見積もりオファークリック",
+                "type": "gaawe",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventName",
+                        "value": "offer_click"
+                    },
+                    {
+                        "type": "TAG_REFERENCE",
+                        "key": "measurementId",
+                        "value": "Google タグ"
+                    },
+                    {
+                        "type": "MAP",
+                        "key": "eventParameters",
+                        "map": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "offer_type",
+                                "value": "discount_19_percent"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "click_element",
+                                "value": "{{Click Element}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "click_text",
+                                "value": "{{Click Text}}"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1733036086000",
+                "firingTriggerId": [
+                    "6"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            }
+        ],
+        "trigger": [
+            {
+                "accountId": "6315860902",
+                "containerId": "231548752",
+                "triggerId": "6",
+                "name": "クリック - 見積もりオファー",
+                "type": "CLICK",
+                "filter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Click Classes}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "offer-summary"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1733036086000",
+                "autoEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Click Element}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "summary.offer-summary"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "variable": [
+            {
+                "accountId": "6315860902",
+                "containerId": "231548752",
+                "variableId": "3",
+                "name": "定数_G-XY0BGLETWF",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "G-XY0BGLETWF"
+                    }
+                ],
+                "fingerprint": "1764199775572",
+                "formatValue": {}
+            }
+        ],
+        "builtInVariable": [
+            {
+                "accountId": "6315860902",
+                "containerId": "231548752",
+                "type": "PAGE_URL",
+                "name": "Page URL"
+            },
+            {
+                "accountId": "6315860902",
+                "containerId": "231548752",
+                "type": "PAGE_HOSTNAME",
+                "name": "Page Hostname"
+            },
+            {
+                "accountId": "6315860902",
+                "containerId": "231548752",
+                "type": "PAGE_PATH",
+                "name": "Page Path"
+            },
+            {
+                "accountId": "6315860902",
+                "containerId": "231548752",
+                "type": "REFERRER",
+                "name": "Referrer"
+            },
+            {
+                "accountId": "6315860902",
+                "containerId": "231548752",
+                "type": "EVENT",
+                "name": "Event"
+            },
+            {
+                "accountId": "6315860902",
+                "containerId": "231548752",
+                "type": "CLICK_ELEMENT",
+                "name": "Click Element"
+            },
+            {
+                "accountId": "6315860902",
+                "containerId": "231548752",
+                "type": "CLICK_CLASSES",
+                "name": "Click Classes"
+            },
+            {
+                "accountId": "6315860902",
+                "containerId": "231548752",
+                "type": "CLICK_TEXT",
+                "name": "Click Text"
+            }
+        ],
+        "fingerprint": "1764565894763",
+        "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6315860902/containers/231548752/versions/0?apiLink=version"
+    }
+}

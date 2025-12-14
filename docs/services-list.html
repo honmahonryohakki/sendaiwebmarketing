@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>できることリスト | 東北学習サービス</title>
+    <meta name="description" content="東北学習サービスで提供可能なサービス一覧。広告運用、AI活用支援、データ分析、研修など、私たちができることをご紹介します。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NSV6HW8P');
+    </script>
+    <!-- End Google Tag Manager -->
+    <style>
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-card h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .service-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--line);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .service-card li:last-child {
+            border-bottom: none;
+        }
+
+        .service-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .category-section {
+            margin-bottom: 60px;
+        }
+
+        .category-section h2 {
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSV6HW8P" height="0" width="0"
+            style="display: none; visibility: hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <header class="site-header">
+        <div class="wrap">
+            <div class="brand" aria-label="東北学習サービス">
+                <div class="brand-mark">TGS</div>
+                <div class="brand-text">
+                    <span class="brand-name">東北学習サービス</span>
+                    <span class="brand-tagline">ノウハウと成果を共有する伴走チーム</span>
+                </div>
+            </div>
+            <nav class="nav">
+                <a href="./index.html#services">サービス</a>
+                <a href="./index.html#strengths">強み</a>
+                <a href="./index.html#pricing">料金</a>
+                <a href="./recruit/">採用情報</a>
+                <a href="./about.html">会社概要</a>
+                <a href="./fortnite.html">Fortnite</a>
+                <a href="./index.html#faq">FAQ</a>
+                <a href="./listing.html">リスティング代行</a>
+                <a href="./ai-consultant.html">AIコンサルタント</a>
+                <a aria-current="page" href="./services-list.html">できることリスト</a>
+                <a class="nav-cta" href="./index.html#contact">お問い合わせ</a>
+            </nav>
+            <div class="social-links" style="margin-top:10px;">
+                <a href="https://www.linkedin.com/in/%E8%97%A4-%E5%8A%A0-bba339312/" target="_blank" rel="noopener"
+                    style="margin-right:15px;">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"
+                        width="24" height="24" style="vertical-align:middle;" />
+                </a>
+                <a href="https://studio.youtube.com/channel/UC4cXmSslLHa8UXRO2zB8bPg" target="_blank" rel="noopener">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube"
+                        width="24" height="24" style="vertical-align:middle;" />
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="wrap hero-layout">
+                <div class="hero-copy">
+                    <p class="tag tag--en">Services List</p>
+                    <h1>私たちができること</h1>
+                    <p class="lead">
+                        東北学習サービスでは、広告運用からAI活用支援、データ分析、研修まで幅広いサービスを提供しています。
+                        お客様のビジネス課題に合わせて、最適なソリューションをご提案します。
+                    </p>
+                    <div class="hero-actions">
+                        <a class="btn" href="./index.html#contact">まずは相談する</a>
+                        <a class="text-link" href="#services">サービス一覧を見る</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <div class="wrap">
+                <!-- 広告運用 -->
+                <div class="category-section">
+                    <h2>広告運用</h2>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <h3>検索広告</h3>
+                            <ul>
+                                <li>Google 検索広告の設計・運用</li>
+                                <li>Yahoo! 検索広告の設計・運用</li>
+                                <li>キーワード選定・入札戦略の最適化</li>
+                                <li>広告文の作成・A/Bテスト</li>
+                                <li>除外キーワードの設定・管理</li>
+                            </ul>
+                        </div>
+                        <div class="service-card">
+                            <h3>ディスプレイ広告</h3>
+                            <ul>
+                                <li>GDN（Googleディスプレイネットワーク）運用</li>
+                                <li>YDA（Yahoo!ディスプレイ広告）運用</li>
+                                <li>リマーケティング/リターゲティング設計</li>
+                                <li>オーディエンスターゲティング設計</li>
+                                <li>バナー画像の提案・制作ディレクション</li>
+                            </ul>
+                        </div>
+                        <div class="service-card">
+                            <h3>SNS広告</h3>
+                            <ul>
+                                <li>Facebook/Instagram広告運用</li>
+                                <li>LINE広告運用</li>
+                                <li>X（旧Twitter）広告運用</li>
+                                <li>TikTok広告運用</li>
+                                <li>クリエイティブの企画・提案</li>
+                            </ul>
+                        </div>
+                        <div class="service-card">
+                            <h3>その他の広告</h3>
+                            <ul>
+                                <li>P-MAX広告の設計・運用</li>
+                                <li>デマンドジェネレーション広告</li>
+                                <li>DSP（Criteo等）の導入・運用支援</li>
+                                <li>動画広告（YouTube広告）運用</li>
+                                <li>アプリ広告運用</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 計測・分析 -->
+                <div class="category-section">
+                    <h2>計測・分析</h2>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <h3>計測環境の整備</h3>
+                            <ul>
+                                <li>Google Analytics 4（GA4）の設定</li>
+                                <li>Google Tag Manager（GTM）の設定</li>
+                                <li>コンバージョン計測の設計・実装</li>
+                                <li>オフラインコンバージョン連携</li>
+                                <li>イベントトラッキングの設計</li>
+                            </ul>
+                        </div>
+                        <div class="service-card">
+                            <h3>レポーティング</h3>
+                            <ul>
+                                <li>週次レポートの作成・提出</li>
+                                <li>月次レビューと改善提案</li>
+                                <li>Looker Studioダッシュボード構築</li>
+                                <li>カスタムレポートの作成</li>
+                                <li>KPI設計とモニタリング</li>
+                            </ul>
+                        </div>
+                        <div class="service-card">
+                            <h3>データ分析</h3>
+                            <ul>
+                                <li>広告パフォーマンス分析</li>
+                                <li>ユーザー行動分析</li>
+                                <li>競合分析・市場調査</li>
+                                <li>ファネル分析・ボトルネック特定</li>
+                                <li>アトリビューション分析</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI活用支援 -->
+                <div class="category-section">
+                    <h2>AI活用支援</h2>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <h3>AI研修・教育</h3>
+                            <ul>
+                                <li>ChatGPT/生成AI活用研修</li>
+                                <li>プロンプトエンジニアリング研修</li>
+                                <li>マーケティング×AI活用ワークショップ</li>
+                                <li>社内向けAIツール導入支援</li>
+                                <li>AIリテラシー向上プログラム</li>
+                            </ul>
+                        </div>
+                        <div class="service-card">
+                            <h3>AIコンサルティング</h3>
+                            <ul>
+                                <li>業務プロセスのAI活用診断</li>
+                                <li>AI導入戦略の策定</li>
+                                <li>業務自動化の提案・実装支援</li>
+                                <li>AIツールの選定・比較検討</li>
+                                <li>AI活用ルールの策定支援</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- サイト改善 -->
+                <div class="category-section">
+                    <h2>サイト・LP改善</h2>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <h3>LP最適化</h3>
+                            <ul>
+                                <li>ランディングページの診断・改善提案</li>
+                                <li>コンバージョン導線の最適化</li>
+                                <li>A/Bテストの設計・実施</li>
+                                <li>ヒートマップ分析</li>
+                                <li>フォーム最適化（EFO）</li>
+                            </ul>
+                        </div>
+                        <div class="service-card">
+                            <h3>サイト改善</h3>
+                            <ul>
+                                <li>サイト構造の診断・改善提案</li>
+                                <li>ユーザビリティ改善</li>
+                                <li>ページ速度の最適化提案</li>
+                                <li>モバイル対応の改善提案</li>
+                                <li>SEO基礎対策の提案</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 内製化支援 -->
+                <div class="category-section">
+                    <h2>内製化支援</h2>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <h3>ドキュメント整備</h3>
+                            <ul>
+                                <li>運用マニュアルの作成</li>
+                                <li>媒体別チェックリストの作成</li>
+                                <li>改善テンプレートの提供</li>
+                                <li>社内ナレッジベースの構築支援</li>
+                                <li>運用ルールの策定</li>
+                            </ul>
+                        </div>
+                        <div class="service-card">
+                            <h3>スキルトランスファー</h3>
+                            <ul>
+                                <li>運用担当者向けハンズオン研修</li>
+                                <li>広告管理画面の操作レクチャー</li>
+                                <li>分析ツールの活用トレーニング</li>
+                                <li>定例ミーティングでのノウハウ共有</li>
+                                <li>質問・相談対応（Slack/Chatwork）</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: var(--accent-soft);">
+            <div class="wrap" style="text-align: center;">
+                <h2>まずはお気軽にご相談ください</h2>
+                <p style="margin-bottom: 30px;">
+                    上記以外のご要望にも柔軟に対応いたします。<br>
+                    お客様の課題やご状況をお聞かせいただき、最適なプランをご提案します。
+                </p>
+                <a class="btn" href="./index.html#contact" style="padding: 16px 40px; font-size: 18px;">無料相談・お問い合わせ</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">&copy; <span id="year"></span> 東北学習サービス</div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
