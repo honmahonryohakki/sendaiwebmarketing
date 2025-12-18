@@ -670,3 +670,8 @@ h3 {
     transform: translateY(0);
   }
 }
+.brand-logo {
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(47, 107, 255, 0.35);
+  display: block;
+}
