@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>コラム一覧 | 東北学習サービス</title>
-  <meta name="description" content="東北学習サービスのコラム一覧。広告運用やAI活用に関するナレッジをまとめています。" />
+  <meta name="description" content="東北学習サービスのコラム一覧。広告運用やAI活用のヒントをまとめています。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
@@ -18,9 +18,9 @@
       var f = d.getElementsByTagName(s)[0],
         j = d.createElement(s),
         dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-NSV6HW8P');
   </script>
   <!-- End Google Tag Manager -->
@@ -39,16 +39,15 @@
         <img src="../images/logo.svg" alt="TGS Logo" class="brand-logo" width="46" height="46">
         <div class="brand-text">
           <span class="brand-name">東北学習サービス</span>
-          <span class="brand-tagline">ノウハウと成果を共有する伴走チーム</span>
+          <span class="brand-tagline">ノウハウをすべて渡す透明な伴走チーム</span>
         </div>
       </a>
       <nav class="nav">
         <a href="../fortnite.html">Fortnite</a>
-        <a href="../ai-consultant.html">AIコンサルタント</a>
-        <a href="../generative-ai-support.html">生成AI導入</a>
+        <a href="../listing.html">リスティング代行</a>
         <a aria-current="page" href="./">コラム</a>
         <a href="../about.html">会社概要</a>
-        <a class="nav-cta" href="../index.html#contact">お問い合わせ</a>
+        <a class="nav-cta" href="../index.html#contact">相談する</a>
       </nav>
       <div class="social-links" style="margin-top:10px;">
         <a href="https://www.linkedin.com/in/%E8%97%A4-%E5%8A%A0-bba339312/" target="_blank" rel="noopener"
@@ -65,33 +64,39 @@
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero" style="padding: 90px 0 60px;">
       <div class="wrap hero-layout">
         <div class="hero-copy">
           <p class="tag tag--en">Column</p>
           <h1>広告運用とAI活用のコラム</h1>
           <p class="lead">
-            広告運用や生成AI活用の気づきをまとめています。実務のヒントや最新トピックをチェックしてください。
+            広告運用や生成AI活用の気づきを短くまとめています。設定やレポートのヒント、実務でよく聞かれる質問を中心に更新していきます。
           </p>
           <div class="hero-actions">
             <a class="btn" href="#articles">記事一覧を見る</a>
             <a class="text-link" href="../index.html#contact">相談・お問い合わせ</a>
           </div>
         </div>
+        <figure class="hero-media">
+          <img src="../images/google_ads_manager_female.png" alt="広告運用に取り組む日本人担当者" width="520" height="360"
+            loading="lazy" decoding="async" />
+        </figure>
       </div>
     </section>
 
     <section id="articles" class="section">
       <div class="wrap">
-        <h2>記事一覧</h2>
-        <div class="cards">
+        <h2>最新コラム</h2>
+        <div class="cards" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
           <article>
-            <p class="tag tag--en">P-MAX / AI Max</p>
-            <h3><a href="./pmax.html" style="text-decoration: none; color: inherit;">EC広告の攻めと守り：P-MaxとAI Maxの活用</a></h3>
-            <p style="color: var(--muted);">
-              EC広告運用で「攻め」のP-Maxと「守り」のAI Maxをどう役割分担するか。失敗しないための基礎と運用の型をまとめました。
-            </p>
-            <a class="text-link" href="./pmax.html">記事を読む</a>
+            <h3><a href="./pmax.html" style="text-decoration: none; color: inherit;">P-MAXのはじめ方とNGチェック</a></h3>
+            <p>Google P-MAXを小さく始めるときの初期設定、除外リスト、計測まわりの注意点をまとめました。</p>
+            <p class="note">更新日: 2025/12/18</p>
+          </article>
+          <article>
+            <h3>近日公開</h3>
+            <p>広告費が限られているときの週次PDCAテンプレート、Instagramリールの最適化メモなどを追加予定です。</p>
+            <p class="note">更新日: 準備中</p>
           </article>
         </div>
       </div>
@@ -99,7 +104,19 @@
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">&copy; <span id="year"></span> 東北学習サービス</div>
+    <div class="wrap footer-layout">
+      <div>&copy; <span id="year"></span> 東北学習サービス</div>
+      <nav class="footer-nav">
+        <a href="../index.html">トップ</a>
+        <a href="../fortnite.html">Fortnite</a>
+        <a href="../ai-consultant.html">AIコンサルタント</a>
+        <a href="../generative-ai-support.html">生成AI導入</a>
+        <a href="../listing.html">リスティング</a>
+        <a href="../services-list.html">サービス一覧</a>
+        <a href="./">コラム</a>
+        <a href="../about.html">会社概要</a>
+      </nav>
+    </div>
   </footer>
 
   <script>
