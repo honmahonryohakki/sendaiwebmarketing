@@ -69,6 +69,7 @@
       <div class="hero-bg-image" aria-hidden="true"></div>
       <div class="hero-overlay" aria-hidden="true"></div>
       <canvas id="hero-three" class="hero-three-canvas" aria-hidden="true"></canvas>
+      <canvas id="hero-points" class="hero-points-canvas" aria-hidden="true"></canvas>
       <div class="hero-scene" aria-hidden="true">
         <div class="hero-orb orb-1"></div>
         <div class="hero-orb orb-2"></div>
@@ -343,7 +344,76 @@
       animate();
     }
 
+    function initHeroPoints() {
+      const canvas = document.getElementById('hero-points');
+      if (!canvas || !window.THREE || motionQuery.matches) return;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+      camera.position.set(0, 0, 5.5);
+
+      const renderer = new THREE.WebGLRenderer({
+        canvas,
+        alpha: true,
+        antialias: true
+      });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.6));
+
+      const count = 180;
+      const positions = new Float32Array(count * 3);
+      const speeds = new Float32Array(count);
+      for (let i = 0; i < count; i++) {
+        positions[i * 3] = (Math.random() - 0.5) * 8;
+        positions[i * 3 + 1] = (Math.random() - 0.5) * 5;
+        positions[i * 3 + 2] = (Math.random() - 0.5) * 3;
+        speeds[i] = 0.3 + Math.random() * 0.6;
+      }
+
+      const geometry = new THREE.BufferGeometry();
+      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+      const material = new THREE.PointsMaterial({
+        color: 0xf4c542,
+        size: 0.06,
+        transparent: true,
+        opacity: 0.9,
+        blending: THREE.AdditiveBlending
+      });
+
+      const points = new THREE.Points(geometry, material);
+      scene.add(points);
+
+      const resize = () => {
+        const rect = canvas.getBoundingClientRect();
+        const width = rect.width;
+        const height = rect.height;
+        renderer.setSize(width, height);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+      };
+
+      const animate = () => {
+        const t = performance.now() * 0.0015;
+        const pos = geometry.attributes.position.array;
+        for (let i = 0; i < count; i++) {
+          const idx = i * 3;
+          pos[idx + 1] += Math.sin(t * speeds[i]) * 0.004;
+          pos[idx + 0] += Math.cos(t * speeds[i] * 0.7) * 0.003;
+          if (pos[idx + 1] > 2.6) pos[idx + 1] = -2.6;
+          if (pos[idx + 1] < -2.6) pos[idx + 1] = 2.6;
+        }
+        geometry.attributes.position.needsUpdate = true;
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+      };
+
+      resize();
+      window.addEventListener('resize', resize);
+      animate();
+    }
+
     initHeroThree();
+    initHeroPoints();
     initSectionWaves();
 
     if (window.gsap) {
