@@ -133,15 +133,22 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
     <script src="./waves.js"></script>
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-        const contact = document.querySelector('#contact');
-        const email = contact?.dataset?.email;
-        if (email) {
-            const mailto = document.getElementById('mailto');
-            mailto.href = `mailto:${email}`;
-            mailto.textContent = email;
+        var yearEl = document.getElementById('year');
+        if (yearEl) {
+            yearEl.textContent = new Date().getFullYear();
         }
-        initSectionWaves();
+        var contact = document.querySelector('#contact');
+        var email = contact && contact.dataset ? contact.dataset.email : null;
+        if (email) {
+            var mailto = document.getElementById('mailto');
+            if (mailto) {
+                mailto.href = 'mailto:' + email;
+                mailto.textContent = email;
+            }
+        }
+        if (typeof initSectionWaves === 'function') {
+            initSectionWaves();
+        }
     </script>
 </body>
 
