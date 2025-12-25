@@ -1117,6 +1117,22 @@ h3 {
   mix-blend-mode: screen;
 }
 
+.wave-fallback {
+  position: relative;
+  overflow: hidden;
+}
+
+.wave-fallback::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(244, 197, 66, 0.16), transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(12, 212, 184, 0.12), transparent 55%);
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* Motion Utilities */
 .reveal {
   opacity: 1;
