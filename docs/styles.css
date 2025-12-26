@@ -443,6 +443,12 @@ body.home {
   z-index: 2;
 }
 
+@media (max-width: 640px) {
+  .home-hero {
+    padding-bottom: 180px;
+  }
+}
+
 .home-hero-block {
   background: linear-gradient(145deg, #111, #1d1a16);
   color: #fdf7e7;
@@ -486,6 +492,27 @@ body.home {
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
 
+@media (max-width: 640px) {
+  .home-hero-panel {
+    margin-top: 120px;
+  }
+}
+
+@media (min-width: 960px) {
+  .home-hero-panel {
+    max-width: 760px;
+    margin-top: 160px;
+    margin-left: auto;
+    justify-self: end;
+    align-self: start;
+  }
+
+  .home-metrics {
+    grid-template-columns: repeat(3, minmax(210px, 1fr));
+    gap: 12px;
+  }
+}
+
 .home-metric {
   background: rgba(255, 255, 255, 0.78);
   border: 1px solid var(--line);
@@ -511,6 +538,32 @@ body.home {
   margin: 6px 0 0;
   color: var(--muted);
   font-size: 13px;
+}
+
+.metric-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: grid;
+  gap: 8px;
+}
+
+.metric-list li {
+  position: relative;
+  padding-left: 14px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.metric-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
 }
 
 .home-section {
@@ -657,10 +710,42 @@ body.home {
 .hero-bg-image {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(17, 15, 12, 0.45), rgba(17, 15, 12, 0.32)),
-    url("./images/google_ads_manager_female.png") center/cover no-repeat;
-  filter: saturate(1.05);
   z-index: 0;
+  overflow: hidden;
+}
+
+.hero-bg-image::before {
+  content: "";
+  position: absolute;
+  inset: -2%;
+  background:
+    radial-gradient(900px 520px at 18% 24%, rgba(244, 197, 66, 0.38), transparent 62%),
+    radial-gradient(900px 560px at 86% 22%, rgba(12, 212, 184, 0.26), transparent 62%),
+    radial-gradient(860px 540px at 62% 78%, rgba(88, 178, 255, 0.22), transparent 60%),
+    linear-gradient(180deg, rgba(255, 250, 242, 0.95), rgba(247, 239, 226, 0.9));
+  filter: blur(18px) saturate(1.05);
+  opacity: 0.95;
+  transform: scale(1.05);
+}
+
+.hero-bg-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("./images/google_ads_manager_female.png") right 10% top 0 / contain no-repeat;
+  opacity: 0.98;
+}
+
+@media (max-width: 640px) {
+  .hero-bg-image::after {
+    background-position: 65% 18%;
+  }
+}
+
+@media (min-width: 960px) {
+  .hero-bg-image::after {
+    background-position: right 8% top 0;
+  }
 }
 
 .hero-overlay {
