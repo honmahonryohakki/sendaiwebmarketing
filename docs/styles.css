@@ -1159,6 +1159,34 @@ h3 {
   flex-wrap: wrap;
 }
 
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+}
+
+.footer-social a:hover,
+.footer-social a:focus {
+  border-color: rgba(47, 107, 255, 0.35);
+}
+
+.footer-social img {
+  width: 20px;
+  height: 20px;
+}
+
 .footer-nav a {
   color: var(--fg);
   text-decoration: none;
