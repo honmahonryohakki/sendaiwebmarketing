@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ノウハウ共有型マーケティング</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;600;700&display=swap');
+
+        :root {
+            --ink: #1b1b1f;
+            --accent: #0f6c6a;
+            --accent-strong: #0b4f4d;
+            --warm: #e07a3f;
+            --sand: #f4efe4;
+            --sky: #d7e6fb;
+            --mist: #f9fbff;
+            --card: rgba(255, 255, 255, 0.94);
+            --shadow: 0 30px 70px rgba(15, 40, 60, 0.18);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Zen Kaku Gothic New', 'Yu Gothic', 'Meiryo', sans-serif;
+            color: var(--ink);
+            background: radial-gradient(circle at 15% 20%, #fce9d8 0%, rgba(252, 233, 216, 0) 45%),
+                radial-gradient(circle at 85% 20%, #cfe6ff 0%, rgba(207, 230, 255, 0) 45%),
+                linear-gradient(120deg, #f9f5e9 0%, #e2eefc 100%);
+            overflow: hidden;
+        }
+
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            filter: blur(0px);
+            opacity: 0.25;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::before {
+            background: linear-gradient(135deg, #f6b987, #e07a3f);
+            top: -120px;
+            right: -120px;
+        }
+
+        body::after {
+            background: linear-gradient(135deg, #6fb7c8, #1d7b78);
+            bottom: -160px;
+            left: -80px;
+        }
+
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .slide {
+            min-width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide-content {
+            width: 100%;
+            max-width: 1200px;
+            background: var(--card);
+            border-radius: 28px;
+            padding: 60px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(12px);
+            animation: rise 0.8s ease-out;
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Shippori Mincho', serif;
+            font-size: 3.2rem;
+            line-height: 1.35;
+            color: var(--accent-strong);
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: 2.4rem;
+            color: var(--accent-strong);
+            margin-bottom: 24px;
+        }
+
+        .eyebrow {
+            font-size: 0.9rem;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            color: #3b3b43;
+            margin-bottom: 32px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            background: var(--mist);
+            border-radius: 18px;
+            padding: 20px 24px;
+            border: 1px solid rgba(15, 108, 106, 0.1);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--accent-strong);
+        }
+
+        .card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #4a4a54;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 26px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .compare-card {
+            border-radius: 20px;
+            padding: 30px;
+            min-height: 280px;
+        }
+
+        .compare-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .compare-card ul {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .compare-card ul li::before {
+            content: "->";
+            margin-right: 10px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 700;
+        }
+
+        .compare-card.base {
+            background: linear-gradient(135deg, #354047 0%, #1e262b 100%);
+            color: #f5f5f6;
+        }
+
+        .compare-card.share {
+            background: linear-gradient(135deg, #1d7b78 0%, #0f4d4b 100%);
+            color: #f2fbfb;
+        }
+
+        .step-card {
+            border-radius: 18px;
+            padding: 24px 26px;
+            background: var(--sand);
+            border: 1px solid rgba(224, 122, 63, 0.2);
+            position: relative;
+        }
+
+        .step-card::before {
+            content: attr(data-step);
+            position: absolute;
+            top: -14px;
+            left: 20px;
+            background: var(--warm);
+            color: #fff;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+        }
+
+        .step-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+            color: var(--accent-strong);
+        }
+
+        .step-card p {
+            line-height: 1.6;
+            color: #4a4a54;
+            font-size: 1.02rem;
+        }
+
+        .list-block {
+            display: grid;
+            gap: 16px;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 18px 20px;
+            border-radius: 16px;
+            background: rgba(15, 108, 106, 0.08);
+        }
+
+        .list-item span {
+            font-weight: 700;
+            color: var(--accent-strong);
+        }
+
+        .list-item p {
+            line-height: 1.6;
+            color: #3f3f49;
+        }
+
+        .cta {
+            margin-top: 28px;
+            padding: 24px 28px;
+            border-radius: 20px;
+            background: linear-gradient(120deg, #0f6c6a 0%, #0b4f4d 100%);
+            color: #fff;
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 30px;
+            right: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 12px 24px;
+            border-radius: 999px;
+            font-weight: 700;
+            color: var(--accent-strong);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            z-index: 2;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 2;
+        }
+
+        .nav-button {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 14px 34px;
+            border-radius: 999px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--accent-strong);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+        }
+
+        .nav-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 1100px) {
+            .slide {
+                padding: 60px 40px;
+            }
+
+            .slide-content {
+                padding: 50px 40px;
+            }
+
+            .hero-grid,
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 820px) {
+            h1 {
+                font-size: 2.4rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .slide-counter {
+                top: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-counter">
+        <span id="currentSlide">1</span> / <span id="totalSlides">6</span>
+    </div>
+
+    <div class="slide-container" id="slideContainer">
+        <div class="slide">
+            <div class="slide-content">
+                <div class="eyebrow">Knowledge-Share Marketing</div>
+                <h1>ノウハウ共有型マーケティングで、広告運用を内製の資産にする</h1>
+                <p class="subtitle">
+                    広告運用のPDCAとAI活用を社内に移植し、再現性ある成長エンジンへ。
+                    依存ではなく共創を前提に、学びが成果に変わる設計を作ります。
+                    提供するすべてのサービスはノウハウ共有が目的。広告運用からAI活用による業務改善まで伴走します。
+                </p>
+                <div class="hero-grid">
+                    <div class="card">
+                        <h3>運用の透明化</h3>
+                        <p>データと施策を共有し、成果の理由が説明できる状態に整える。</p>
+                    </div>
+                    <div class="card">
+                        <h3>学習の内製化</h3>
+                        <p>運用判断の根拠を残し、担当が変わっても続く仕組みにする。</p>
+                    </div>
+                    <div class="card">
+                        <h3>AIで速度を上げる</h3>
+                        <p>調査・制作・分析をAIに委譲し、意思決定の質を上げる。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2>共有型にする理由</h2>
+                <p class="subtitle">代行依存から脱却し、社内に学びと成果が循環する状態へ。</p>
+                <div class="grid-2">
+                    <div class="compare-card base">
+                        <h3>依頼型の運用</h3>
+                        <ul>
+                            <li>施策の背景がブラックボックス化</li>
+                            <li>担当交代で知見が消える</li>
+                            <li>判断が外部都合に引きずられる</li>
+                            <li>PDCAが形骸化しやすい</li>
+                        </ul>
+                    </div>
+                    <div class="compare-card share">
+                        <h3>ノウハウ共有型</h3>
+                        <ul>
+                            <li>意思決定の根拠を記録し共有</li>
+                            <li>学びが資産として残る</li>
+                            <li>広告以外の施策にも展開可能</li>
+                            <li>改善が内製で回り続ける</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2>広告運用のPDCA設計</h2>
+                <p class="subtitle">運用タスクを分解し、誰が見ても次の手が分かる状態に。</p>
+                <div class="grid-2">
+                    <div class="step-card" data-step="Plan">
+                        <h3>目標と仮説を言語化</h3>
+                        <p>事業KPIに接続した目標を定義し、勝ち筋の仮説を設計する。</p>
+                    </div>
+                    <div class="step-card" data-step="Do">
+                        <h3>実行と検証設計</h3>
+                        <p>広告構成、配信設計、クリエイティブ検証を計画通りに実行する。</p>
+                    </div>
+                    <div class="step-card" data-step="Check">
+                        <h3>学びの抽出</h3>
+                        <p>指標の変化と要因を整理し、成功・失敗の理由を残す。</p>
+                    </div>
+                    <div class="step-card" data-step="Act">
+                        <h3>次の打ち手へ反映</h3>
+                        <p>学びを運用ルールに更新し、次の施策へとつなげる。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2>PDCAにおけるAI活用</h2>
+                <p class="subtitle">AIは作業者ではなく、思考を前に進める共同運転者。</p>
+                <div class="grid-2">
+                    <div class="step-card" data-step="Plan x AI">
+                        <h3>市場・競合の高速把握</h3>
+                        <p>検索意図の整理、競合クリエイティブの分類、仮説の幅出しを高速化。</p>
+                    </div>
+                    <div class="step-card" data-step="Do x AI">
+                        <h3>制作と運用の効率化</h3>
+                        <p>広告文の案出し、LP改善の仮説、入札や配信設定の初期案を支援。</p>
+                    </div>
+                    <div class="step-card" data-step="Check x AI">
+                        <h3>要因分析の補助</h3>
+                        <p>レポート要約、指標変動の説明案、検証結果の整理をスピードアップ。</p>
+                    </div>
+                    <div class="step-card" data-step="Act x AI">
+                        <h3>改善案の再設計</h3>
+                        <p>勝ち筋の再定義、次の検証案の優先順位付けをサポート。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2>広告運用の実務で共有する中身</h2>
+                <p class="subtitle">運用の勝敗が決まるポイントを、社内標準として残す。</p>
+                <div class="grid-3">
+                    <div class="card">
+                        <h3>計測とデータ設計</h3>
+                        <p>計測タグ、コンバージョン定義、データ統合の運用ルール。</p>
+                    </div>
+                    <div class="card">
+                        <h3>アカウント構造</h3>
+                        <p>キャンペーン設計、分割基準、予算配分のロジック。</p>
+                    </div>
+                    <div class="card">
+                        <h3>クリエイティブ検証</h3>
+                        <p>ABテストの設計、訴求軸の整理、勝ちパターンの記録。</p>
+                    </div>
+                    <div class="card">
+                        <h3>入札と最適化</h3>
+                        <p>学習フェーズの管理、入札戦略の切り替え基準。</p>
+                    </div>
+                    <div class="card">
+                        <h3>レポーティング</h3>
+                        <p>見たい指標の統一、意思決定に必要な報告フォーマット。</p>
+                    </div>
+                    <div class="card">
+                        <h3>プロジェクト運用</h3>
+                        <p>週次のレビュー、改善タスクの優先順位、意思決定の会議設計。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2>広告以外にも広げるAI活用</h2>
+                <p class="subtitle">AIを社内に実装することで、部門横断の効率化が進む。</p>
+                <div class="list-block">
+                    <div class="list-item">
+                        <span>運用フロー整備</span>
+                        <p>業務の棚卸しとテンプレート化で、属人化を減らす。</p>
+                    </div>
+                    <div class="list-item">
+                        <span>データ共有の設計</span>
+                        <p>レポートの一元化とナレッジベースを作り、判断の速度を上げる。</p>
+                    </div>
+                    <div class="list-item">
+                        <span>社内AIガイドライン</span>
+                        <p>情報管理と品質基準を定義し、安心して使える土台を作る。</p>
+                    </div>
+                    <div class="list-item">
+                        <span>教育と伴走</span>
+                        <p>実務に沿った研修とOJTで、AIを使いこなす人材を増やす。</p>
+                    </div>
+                </div>
+                <div class="cta">
+                    広告運用のノウハウ共有を入口に、AI活用を全社の競争力へ。
+                    まずはPDCAの見える化から始めましょう。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-button" id="prevBtn" onclick="changeSlide(-1)" disabled>前へ</button>
+        <button class="nav-button" id="nextBtn" onclick="changeSlide(1)">次へ</button>
+    </div>
+
+    <script>
+        const container = document.getElementById('slideContainer');
+        const slides = Array.from(container.querySelectorAll('.slide'));
+        const totalSlides = slides.length;
+        let currentSlide = 0;
+
+        document.getElementById('totalSlides').textContent = totalSlides;
+
+        function updateNav() {
+            document.getElementById('currentSlide').textContent = currentSlide + 1;
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+
+            container.style.transform = `translateX(-${currentSlide * 100}vw)`;
+            updateNav();
+        }
+
+        updateNav();
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+    </script>
+</body>
+
+</html>
