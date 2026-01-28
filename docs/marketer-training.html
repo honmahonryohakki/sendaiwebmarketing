@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>マーケター育成支援プログラム | 東北学習サービス</title>
+    <meta name="description" content="広告運用・リサーチ・AI活用を社内の資産に。外部依存から脱却し、自走できるマーケターを育成するための伴走型プログラムをご提案します。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NSV6HW8P');
+    </script>
+    <!-- End Google Tag Manager -->
+    <style>
+        /* 独立LP用の追加スタイル */
+        .hero-content {
+            padding-top: 100px;
+            padding-bottom: 80px;
+        }
+
+        .problem-box {
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .vs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .vs-card {
+            padding: 30px;
+            border-radius: 18px;
+        }
+
+        .vs-card.outsource {
+            background: #f0f0f0;
+            color: #777;
+        }
+
+        .vs-card.inhouse {
+            background: var(--accent-soft);
+            border: 2px solid var(--accent);
+        }
+
+        .service-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .service-detail-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--line);
+            transition: transform 0.3s ease;
+        }
+
+        .service-detail-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .step-item {
+            position: relative;
+            background: var(--card);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid var(--line);
+        }
+
+        .step-num {
+            font-weight: 800;
+            font-size: 14px;
+            color: var(--accent);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .vs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body class="home marketer-training">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSV6HW8P" height="0" width="0"
+            style="display: none; visibility: hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header class="site-header">
+        <div class="wrap">
+            <a href="./index.html" class="brand" aria-label="東北学習サービス">
+                <img src="./images/logo.svg" alt="TGS Logo" class="brand-logo" width="46" height="46">
+                <div class="brand-text">
+                    <span class="brand-name">東北学習サービス</span>
+                    <span class="brand-tagline">ノウハウをすべて渡す透明な伴走チーム</span>
+                </div>
+            </a>
+            <nav class="nav">
+                <a class="nav-cta" href="#contact">無料相談</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="home-hero hero-content">
+            <div class="hero-bg-image" aria-hidden="true" style="opacity: 0.15; filter: grayscale(1);"></div>
+            <div class="wrap">
+                <div class="home-hero-copy">
+                    <p class="eyebrow">Professional Training & Companion</p>
+                    <h1>マーケティングを"外注"から"内製"へ。</h1>
+                    <p class="lead">自社でリサーチ、広告、分析を回せるマーケターを育てる。<br>AI活用による圧倒的なスピードと透明な知見共有で、社内に再現可能な成長エンジンを構築します。</p>
+                    <div class="home-actions">
+                        <a class="btn" href="#contact">無料で詳しく話を聞く</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem & Solution -->
+        <section class="section">
+            <div class="wrap">
+                <div class="home-section-head">
+                    <h2>なぜ、今「内製化」なのか</h2>
+                    <p class="lead">外部依存のリスクを解消し、自社に資産を蓄積する時代です。</p>
+                </div>
+                <div class="vs-grid">
+                    <div class="vs-card outsource reveal">
+                        <h3>これまでの「丸投げ型」</h3>
+                        <ul class="metric-list">
+                            <li>施策がブラックボックスになりがち</li>
+                            <li>担当交代で知見がリセットされる</li>
+                            <li>外注費がかさみ、社内に知見が残らない</li>
+                            <li>スピード感のある改善が難しい</li>
+                        </ul>
+                    </div>
+                    <div class="vs-card inhouse reveal" style="--delay: 0.1s;">
+                        <h3>これからの「共創・内製型」</h3>
+                        <ul class="metric-list">
+                            <li>意思決定の根拠をすべて社内に蓄積</li>
+                            <li>自社メンバーが運用・改善の主体に</li>
+                            <li>AI活用で少人数でも高い生産性を実現</li>
+                            <li>ビジネスの変化に即座に対応できる</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="home-section alt">
+            <div class="wrap">
+                <div class="home-section-head">
+                    <div>
+                        <p class="eyebrow">WHAT WE BUILD</p>
+                        <h2>身につく「4つの基盤スキル」</h2>
+                    </div>
+                </div>
+                <div class="service-detail-grid">
+                    <article class="service-detail-card reveal">
+                        <h3>1. リサーチ・市場分析</h3>
+                        <p>競合の広告クリエイティブ分析、3C/STP分析などのフレームワーク活用、さらにはYouTubeの投稿時間帯やハッシュタグ分析まで。データから「勝てる市場」を見つける調査スキルを身につけます。
+                        </p>
+                    </article>
+                    <article class="service-detail-card reveal" style="--delay: 0.1s;">
+                        <h3>2. 広告運用の実践力</h3>
+                        <p>Google・Metaなどの主要媒体を自ら設定・運用。ブラックボックスにせず、成果の理由を説明できるレベルまで伴走します。</p>
+                    </article>
+                    <article class="service-detail-card reveal" style="--delay: 0.2s;">
+                        <h3>3. AI活用による効率化</h3>
+                        <p>プロンプト設計から業務自動化まで。AIを「使いこなす側」になり、リサーチやレポート作成の時間を大幅に削減します。</p>
+                    </article>
+                    <article class="service-detail-card reveal" style="--delay: 0.3s;">
+                        <h3>4. PDCAの仕組み化</h3>
+                        <p>単なる作業ではなく、学びを「型」として残す方法。担当者が変わっても成果が続く、社内標準のレポーティングを構築します。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Steps -->
+        <section class="section">
+            <div class="wrap">
+                <div class="home-section-head">
+                    <h2>育成プログラムの流れ</h2>
+                </div>
+                <div class="step-list">
+                    <div class="step-item reveal">
+                        <span class="step-num">STEP 01</span>
+                        <h3>現状診断・目標設計</h3>
+                        <p>事業課題の棚卸しと、目指すべき内製化のゴールを定義します。</p>
+                    </div>
+                    <div class="step-item reveal" style="--delay: 0.1s;">
+                        <span class="step-num">STEP 02</span>
+                        <h3>調査・分析の型作り</h3>
+                        <p>競合や市場の調査、GA4等を用いた分析のフローを構築。AIを使って膨大なデータから洞察を得る方法を学びます。</p>
+                    </div>
+                    <div class="step-item reveal" style="--delay: 0.2s;">
+                        <span class="step-num">STEP 03</span>
+                        <h3>広告運用とABテスト</h3>
+                        <p>実務で広告を運用しながら、リサーチ結果をクリエイティブに反映。改善の高速サイクルを回します。</p>
+                    </div>
+                    <div class="step-item reveal" style="--delay: 0.3s;">
+                        <span class="step-num">STEP 04</span>
+                        <h3>自走化・型化</h3>
+                        <p>ナレッジをドキュメント化し、社内だけでPDCAが回る状態を確立します。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section class="section">
+            <div class="wrap">
+                <div class="home-section-head">
+                    <h2>料金プラン</h2>
+                    <p class="lead">ビジネスのフェーズに合わせて選べる3つのプラン。</p>
+                </div>
+                <div class="pricing-grid">
+                    <!-- Plan 1 -->
+                    <div class="pricing-card reveal">
+                        <h3>Googleスターター</h3>
+                        <div class="price">
+                            <span class="currency">¥</span>
+                            <span class="amount">4,390</span>
+                            <span class="tax-note">(税抜)</span>
+                        </div>
+                        <div class="price-desc">Googleアカウント・広告・アナリティクスの基本設定プラン</div>
+                        <ul class="pricing-features">
+                            <li>Googleアカウント設定</li>
+                            <li>Google広告アカウント設定</li>
+                            <li>Googleアナリティクス設定</li>
+                            <li>アナリティクスの見方・説明</li>
+                            <li class="disabled">広告運用のノウハウ伝達</li>
+                        </ul>
+                    </div>
+                    <!-- Plan 2 -->
+                    <div class="pricing-card recommended reveal" style="--delay: 0.1s;">
+                        <div class="recommend-badge">RECOMMENDED</div>
+                        <h3>マーケティング・スキル</h3>
+                        <div class="price">
+                            <span class="currency">¥</span>
+                            <span class="amount">9,080</span>
+                            <span class="tax-note">(税抜)</span>
+                        </div>
+                        <div class="price-desc">広告運用ノウハウとマーケティングスキルを蓄積するメインプラン</div>
+                        <ul class="pricing-features">
+                            <li><strong>Googleスターターの内容含む</strong></li>
+                            <li>広告設定・運用のノウハウ伝達</li>
+                            <li>指標の読み方レクチャー</li>
+                            <li>マーケティングスキル蓄積支援</li>
+                        </ul>
+                    </div>
+                    <!-- Plan 3 -->
+                    <div class="pricing-card reveal" style="--delay: 0.2s;">
+                        <h3>フルスタック広告運用</h3>
+                        <div class="price">
+                            <span class="currency">¥</span>
+                            <span class="amount">13,980</span>
+                            <span class="tax-note">(税抜)</span>
+                        </div>
+                        <div class="price-desc">SNS広告を含む全方位のマーケティング支援</div>
+                        <ul class="pricing-features">
+                            <li><strong>マーケティング・スキルの内容含む</strong></li>
+                            <li>SNS広告設定・運用<br><span style="font-size:12px;color:#888;">(TikTok, Instagram, Threads,
+                                    Pinterest)</span></li>
+                            <li>マーケティング戦略支援</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Target -->
+            <section class="section alt">
+                <div class="wrap">
+                    <div class="home-section-head text-center" style="margin-left: auto; margin-right: auto;">
+                        <h2>このような方におすすめです</h2>
+                    </div>
+                    <div class="home-grid">
+                        <div class="home-card reveal">
+                            <h3>「代理店任せ」に限界を感じている</h3>
+                            <p>施策の中身が見えず、改善のスピードが遅いと感じている経営者・担当者様。</p>
+                        </div>
+                        <div class="home-card reveal" style="--delay: 0.1s;">
+                            <h3>社内にマーケティング部を作りたい</h3>
+                            <p>自社で採用したメンバーをプロへ育て上げ、事業の核心（マーケ）を握りたい方。</p>
+                        </div>
+                        <div class="home-card reveal" style="--delay: 0.2s;">
+                            <h3>AIを本気で実務に組み込みたい</h3>
+                            <p>話題のAIを単なる遊びではなく、利益を生む「生産性向上ツール」として使い倒したい方。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact CTA -->
+            <section id="contact" class="home-section contact" data-email="tohoku.study.service@gmail.com">
+                <div class="wrap">
+                    <div class="home-cta-box reveal">
+                        <h3>内製化への第一歩を、無料相談から。</h3>
+                        <p>現在の体制や課題をお聞かせください。貴社に最適な育成プランの素案を提示します。</p>
+                        <div
+                            style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+                            <p style="margin-bottom: 8px; font-size: 14px; color: #ddd1b7;">下記アドレスをコピー＆ペーストして送信してください
+                            </p>
+                            <strong
+                                style="font-size: clamp(18px, 4vw, 24px); letter-spacing: 0.02em;">tohoku.study.service@gmail.com</strong>
+                        </div>
+                        <p class="note" style="color: #ddd1b7; font-size: 13px; opacity: 0.8;">
+                            ※セキュリティ保護と円滑なデータ連携のため、Gmailを活用しております。
+                        </p>
+                    </div>
+                </div>
+            </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap footer-layout">
+            <div>&copy; <span id="year"></span> 東北学習サービス</div>
+            <div class="brand-text" style="font-size: 11px; opacity: 0.6;">マーケター育成支援プログラム</div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Smooth reveal animations
+        const revealItems = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        revealItems.forEach(item => observer.observe(item));
+
+        if (window.gsap && window.ScrollTrigger) {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.from('.home-card', {
+                scrollTrigger: {
+                    trigger: '.home-grid',
+                    start: 'top 80%'
+                },
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2
+            });
+        }
+    </script>
+</body>
+
+</html>
