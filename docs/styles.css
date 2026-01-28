@@ -1585,6 +1585,7 @@ h3 {
     position: relative;
     box-shadow: var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: visible;
 }
 
 .pricing-card:hover {
