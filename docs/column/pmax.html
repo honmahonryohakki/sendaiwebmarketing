@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EC広告の攻めと守り：P-MaxとAI Maxの活用術 | 東北学習サービス</title>
+    <meta name="description"
+        content="2025年のEC広告運用はP-MaxとAI Maxが鍵。攻めの新規開拓と守りの刈り取りを役割分担し、売上を伸ばすための設計と運用ノウハウを解説します。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NSV6HW8P');
+    </script>
+    <!-- End Google Tag Manager -->
+    <style>
+        .blog-header {
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .blog-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .blog-content h2 {
+            margin-top: 64px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--accent-soft);
+        }
+
+        .blog-content h3 {
+            margin-top: 40px;
+            color: var(--accent);
+        }
+
+        .blog-content p {
+            margin-bottom: 24px;
+            line-height: 1.8;
+            color: var(--fg);
+        }
+
+        .blog-content ul,
+        .blog-content ol {
+            margin-bottom: 32px;
+            padding-left: 24px;
+            background: #fff;
+            padding: 24px 24px 24px 48px;
+            border-radius: 12px;
+            border: 1px solid var(--line);
+        }
+
+        .blog-content li {
+            margin-bottom: 12px;
+        }
+
+        .blog-content strong {
+            background: linear-gradient(transparent 60%, var(--accent-soft) 60%);
+        }
+
+        .qa-box {
+            background: #fff;
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid var(--line);
+            margin-bottom: 32px;
+        }
+
+        .qa-question {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 16px;
+            display: flex;
+            gap: 12px;
+            align-items: baseline;
+        }
+
+        .qa-question::before {
+            content: "Q.";
+            color: var(--accent);
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .qa-answer {
+            display: flex;
+            gap: 12px;
+            align-items: baseline;
+        }
+
+        .qa-answer::before {
+            content: "A.";
+            color: var(--muted);
+            font-size: 24px;
+            font-weight: 800;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSV6HW8P" height="0" width="0"
+            style="display: none; visibility: hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <header class="site-header">
+        <div class="wrap">
+            <a href="../index.html" class="brand" aria-label="東北学習サービス">
+                <img src="../images/logo.svg" alt="TGS Logo" class="brand-logo" width="46" height="46">
+                <div class="brand-text">
+                    <span class="brand-name">東北学習サービス</span>
+                    <span class="brand-tagline">ノウハウをすべて渡す透明な伴走チーム</span>
+                </div>
+            </a>
+            <nav class="nav">
+                <a href="../fortnite.html">Fortnite</a>
+                <a href="../ai-consultant.html">AIコンサルタント</a>
+                <a href="../generative-ai-support.html">生成AI導入</a>
+                <a href="../tohoku-study.html">学習支援</a>
+                <a href="../column/">コラム</a>
+                <a href="../about.html">会社概要</a>
+                <a href="../package.html">パッケージ</a>
+                <a class="nav-cta" href="../index.html#contact">お問い合わせ</a>
+            </nav>
+            <div class="social-links" style="margin-top:10px;">
+                <a href="https://www.linkedin.com/in/%E8%97%A4-%E5%8A%A0-bba339312/" target="_blank" rel="noopener"
+                    style="margin-right:15px;">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"
+                        width="24" height="24" style="vertical-align:middle;" />
+                </a>
+                <a href="https://www.youtube.com/@LifeDesignChannel-e9i" target="_blank" rel="noopener">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube"
+                        width="24" height="24" style="vertical-align:middle;" />
+                </a>
+                <a href="../discord" target="_blank" rel="noopener" style="margin-left:15px;">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord"
+                        width="24" height="24" style="vertical-align:middle;" />
+                </a>
+            </div>
+        </div>
+    </header>
+
+  <div class="knowledge-share-banner">
+    <div class="wrap">
+      <p>
+        <span class="knowledge-share-label">ノウハウ共有が目的</span>
+        <span class="knowledge-share-text">提供するすべてのサービスはノウハウ共有が前提。広告運用からAI活用による業務改善まで伴走します。</span>
+      </p>
+    </div>
+  </div>
+
+    <main>
+        <article class="section">
+            <div class="wrap">
+                <header class="blog-header">
+                    <p class="tag">コラム</p>
+                    <h1>EC広告の攻めと守り：P-MaxとAI Maxの活用術</h1>
+                    <p class="lead">2025年のEC広告運用で注目される「P-Max」と「AI Max」。それぞれの役割を分けて設計・運用することで、売上の安定と拡大を両立させる考え方をまとめました。</p>
+                </header>
+
+                <div class="blog-content">
+                    <h2>記事の概要</h2>
+                    <p>ECサイト運営では「広告費をかけても売上が伸びない」「自動化の変化が速くて追いつかない」という声が多く聞かれます。P-Max（Performance Max）は新規接点を広げる“攻め”、AI Max付き検索は買う意欲が高い検索を取り切る“守り”として役割分担するのがポイントです。</p>
+                    <p>本記事では、P-Maxを育てるための設計、AI Maxを安全に使うための除外/計測の考え方、社内運用と外部パートナー活用のバランスについて解説します。</p>
+
+                    <h2>中小ECが抱えがちな悩みと、広告の重要性</h2>
+                    <p>やることが多い割に、どこから手を付ければいいか迷う──これがEC広告の難しさです。広告クリックが増えても購入が増えない、設定を変えるたびに成果がブレる、といった状況は珍しくありません。正しく設計した広告は、需要がある人に確実に届き、売上を再現性高く積み上げるためのベースになります。</p>
+
+                    <h2>ECを伸ばす三つのポイント</h2>
+
+                    <h3>1. P-Maxで「攻め」の新規獲得を設計する</h3>
+                    <p>P-Maxは検索以外の面にも配信し、まだ認知していない人にも商品を届けられるキャンペーンです。配信先が広い分、検索広告よりも細かな内訳は見えにくいものの、当たり素材が見つかると一気に伸びるポテンシャルがあります。</p>
+                    <p>コツは、開始直後に設定を頻繁に変えすぎないこと。商品フィード（商品名・価格・画像・説明・在庫）の品質を整え、画像や説明文を地道に改善して“当たり”を増やすほど安定します。</p>
+
+                    <h3>2. AI Max付き検索で「守り」の刈り取りを強化する</h3>
+                    <p>AI Maxは検索キャンペーンにAIの拡張を足す機能です。検索語句の拡張や自動生成クリエイティブが効く一方、意図しない語句や遷移先が増えるリスクもあります。週1回の検索語句確認と除外キーワード整備を前提に運用するのがおすすめです。</p>
+                    <p>役割分担のイメージは、<strong>P-Maxで新規を広げる（攻め）</strong>、<strong>AI Max付き検索で買う意欲が高い検索を取り切る（守り）</strong>、そして<strong>どちらにも除外キーワードと適切な遷移先を設定してムダを減らす（基礎）</strong>です。</p>
+
+                    <h3>3. ランディングページ × 除外 × 計測の基礎を固める</h3>
+                    <p>検索語句と最初に見せるページの一致度が高いほど購入につながります。「無料」「中古」「レンタル」「求人」など意図がずれる語句を除外キーワードでブロックし、計測はクリックスルーだけでなく購入・問い合わせまで追えるように整備しましょう。</p>
+                    <p>予算は「続けられる額」を最優先に、小さくテストして勝ち筋が見えたところに寄せるのが現実的です。</p>
+
+                    <h2>失敗しないためのチェックポイント</h2>
+                    <ul>
+                        <li><strong>フィード品質が低いままP-Maxに期待しすぎない</strong><br>商品名・画像・説明・在庫・価格を定期的にメンテナンス。</li>
+                        <li><strong>開始直後に目標や予算を頻繁に動かさない</strong><br>学習が安定するまで大きな変更は控え、素材改善を優先。</li>
+                        <li><strong>ブランド検索の刈り取りをP-Max任せにしない</strong><br>指名用の検索キャンペーンを用意し、役割を分ける。</li>
+                        <li><strong>AI Maxの拡張を放置しない</strong><br>週1回の検索語句チェックで不要ワードを除外。</li>
+                        <li><strong>ランディングページの改善を後回しにしない</strong><br>検索語句とページのズレを直し、不安要素を減らす。</li>
+                    </ul>
+
+                    <h2>自社運用とプロへの依頼、どちらを選ぶ？</h2>
+                    <p>自社運用でも十分可能ですが、毎週の検索語句チェック、月次の役割分担見直しを続ける負荷はそれなりに高いです。見る数字（例：週次の検索語句・CPA、月次の売上・広告費用対効果）を固定し、改善タスクを3つ程度に絞ると迷いが減ります。</p>
+                    <p>外部パートナーに依頼する場合は「設計と改善サイクルづくり」「レポートの型化」「除外と配信構造の整備」などを任せると効率が上がります。一方で「目標売上」「利益ライン」「優先する商品カテゴリー」の意思決定は社内で握るとぶれません。</p>
+
+                    <h2>用語集</h2>
+                    <dl style="display: grid; gap: 24px;">
+                        <div>
+                            <dt style="font-weight: 700; font-size: 18px; color: var(--accent);">P-Max（Performance Max）</dt>
+                            <dd style="margin: 8px 0 0 0;">
+                                <p style="margin: 0;"><strong>定義：</strong>複数の配信面に横断で出し、AIで最適化するキャンペーン。</p>
+                                <p style="margin: 4px 0 0 0; color: var(--muted);"><strong>一言：</strong>Googleのいろんな場所にまとめて出す広告。</p>
+                            </dd>
+                        </div>
+                        <div>
+                            <dt style="font-weight: 700; font-size: 18px; color: var(--accent);">AI Max（検索広告向け拡張）</dt>
+                            <dd style="margin: 8px 0 0 0;">
+                                <p style="margin: 0;"><strong>定義：</strong>検索広告で、検索語句拡張・生成素材・最終URL最適化などのAI機能を使う設定。</p>
+                                <p style="margin: 4px 0 0 0; color: var(--muted);"><strong>一言：</strong>検索広告にAIの“手伝い”を足す機能。</p>
+                            </dd>
+                        </div>
+                        <div>
+                            <dt style="font-weight: 700; font-size: 18px; color: var(--accent);">広告費用対効果（ROAS）</dt>
+                            <dd style="margin: 8px 0 0 0;">
+                                <p style="margin: 0;"><strong>定義：</strong>広告費に対して得られた売上の割合。</p>
+                                <p style="margin: 4px 0 0 0; color: var(--muted);"><strong>一言：</strong>広告に使ったお金が、売上でどれくらい返るか。</p>
+                            </dd>
+                        </div>
+                        <div>
+                            <dt style="font-weight: 700; font-size: 18px; color: var(--accent);">獲得単価（CPA）</dt>
+                            <dd style="margin: 8px 0 0 0;">
+                                <p style="margin: 0;"><strong>定義：</strong>1件の成果を得るのに必要な広告費。</p>
+                                <p style="margin: 4px 0 0 0; color: var(--muted);"><strong>一言：</strong>1回売れたり問い合わせが来たりするまでにかかった費用。</p>
+                            </dd>
+                        </div>
+                        <div>
+                            <dt style="font-weight: 700; font-size: 18px; color: var(--accent);">商品フィード</dt>
+                            <dd style="margin: 8px 0 0 0;">
+                                <p style="margin: 0;"><strong>定義：</strong>商品名・価格・画像・説明などのデータをまとめた商品リスト。</p>
+                                <p style="margin: 4px 0 0 0; color: var(--muted);"><strong>一言：</strong>広告に使う商品のまとめ表。</p>
+                            </dd>
+                        </div>
+                        <div>
+                            <dt style="font-weight: 700; font-size: 18px; color: var(--accent);">除外キーワード</dt>
+                            <dd style="margin: 8px 0 0 0;">
+                                <p style="margin: 0;"><strong>定義：</strong>広告を表示させたくない検索語句を指定する設定。</p>
+                                <p style="margin: 4px 0 0 0; color: var(--muted);"><strong>一言：</strong>ムダな検索には出さないための“立入禁止ワード”。</p>
+                            </dd>
+                        </div>
+                        <div>
+                            <dt style="font-weight: 700; font-size: 18px; color: var(--accent);">ランディングページ</dt>
+                            <dd style="margin: 8px 0 0 0;">
+                                <p style="margin: 0;"><strong>定義：</strong>広告から最初に訪問するページ。</p>
+                                <p style="margin: 4px 0 0 0; color: var(--muted);"><strong>一言：</strong>広告をクリックした人が最初に開くページ。</p>
+                            </dd>
+                        </div>
+                    </dl>
+
+                    <h2>よくある質問</h2>
+                    <div class="qa-box">
+                        <div class="qa-question">P-Maxと検索広告、どちらを先に始めるべき？</div>
+                        <div class="qa-answer">
+                            <div>
+                                <p style="margin: 0;"><strong>結論：両方を小さく始め、役割を固定する。</strong><br>P-Maxで新規を広げ、AI Max付き検索で買う意欲が高い検索を取り切ると、改善の焦点が明確になります。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="qa-box">
+                        <div class="qa-question">AI Maxは入れっぱなしで大丈夫？</div>
+                        <div class="qa-answer">
+                            <div>
+                                <p style="margin: 0;"><strong>結論：週1回の検索語句チェックが前提。</strong><br>拡張が効くほど配信は出ますが、不要な語句を除外に回す運用がセットです。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="qa-box">
+                        <div class="qa-question">P-Maxの学習期間はどのくらい？</div>
+                        <div class="qa-answer">
+                            <div>
+                                <p style="margin: 0;"><strong>結論：最低でも数週間は大きな変更を控える。</strong><br>学習中に設定を頻繁に動かすと成果が安定しづらくなります。素材改善を優先しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="qa-box">
+                        <div class="qa-question">広告費はいくらから始めるのが安全？</div>
+                        <div class="qa-answer">
+                            <div>
+                                <p style="margin: 0;"><strong>結論：続けられる額で小さくテストし、勝ち筋に寄せる。</strong><br>最初から大きく賭けるより、テストと改善を繰り返す方がリスクを抑えられます。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 48px; font-weight: 700; text-align: center;">
+                        広告は「当てるゲーム」ではなく「改善を積み重ねる仕事」です。<br>
+                        小さく始めて、見る数字を決めて、毎週少しずつ整える。<br>
+                        その積み重ねが、ECの売上をじわじわ押し上げます。
+                    </p>
+
+                </div>
+            </div>
+        </article>
+
+        <section id="contact" class="contact section" data-email="tohoku.study.service@gmail.com">
+            <div class="wrap">
+                <h2>ご相談・お問い合わせ</h2>
+                <p>EC広告運用やP-Max/AI Max活用の具体的なご相談はお気軽にご連絡ください。現状の課題や目標をお伺いし、初回提案の素案を準備いたします。</p>
+                <p class="email"><a id="mailto" href="mailto:tohoku.study.service@gmail.com">tohoku.study.service@gmail.com</a>
+                </p>
+                <p class="note">原則1営業日以内に折り返します。機密情報がある場合はNDAの締結から進行いたします。</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap footer-layout">
+            <div>&copy; <span id="year"></span> 東北学習サービス</div>
+            <nav class="footer-nav">
+                <a href="../index.html">トップ</a>
+                <a href="../tohoku-study.html">学習支援</a>
+                <a href="../fortnite.html">Fortnite</a>
+                <a href="../ai-consultant.html">AIコンサルタント</a>
+                <a href="../generative-ai-support.html">生成AI導入</a>
+                <a href="../listing.html">リスティング</a>
+                <a href="../package.html">パッケージ</a>
+                <a href="../services-list.html">サービス一覧</a>
+                <a href="../column/">コラム</a>
+                <a href="../about.html">会社概要</a>
+            </nav>
+            <div class="footer-social" aria-label="Discord">
+                <a href="../discord" target="_blank" rel="noopener">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="../waves.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        const contact = document.querySelector('#contact');
+        const email = contact?.dataset?.email;
+        if (email) {
+            const mailto = document.getElementById('mailto');
+            mailto.href = `mailto:${email}`;
+            mailto.textContent = email;
+        }
+        initSectionWaves();
+    </script>
+</body>
+
+</html>

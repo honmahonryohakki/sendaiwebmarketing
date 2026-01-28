@@ -39,21 +39,17 @@
         <img src="./images/logo.svg" alt="TGS Logo" class="brand-logo" width="46" height="46">
         <div class="brand-text">
           <span class="brand-name">東北学習サービス</span>
-          <span class="brand-tagline">仙台・東北の広告運用パートナー</span>
+          <span class="brand-tagline">ノウハウをすべて渡す透明な伴走チーム</span>
         </div>
       </a>
       <nav class="nav">
-        <a href="./index.html#services">サービス</a>
-        <a href="./index.html#strengths">強み</a>
-        <a href="./index.html#pricing">料金</a>
-        <a href="./recruit/">採用情報</a>
-        <a aria-current="page" href="./about.html">会社概要</a>
         <a href="./fortnite.html">Fortnite</a>
-        <a href="./index.html#faq">FAQ</a>
-        <a href="./listing.html">リスティング代行</a>
         <a href="./ai-consultant.html">AIコンサルタント</a>
         <a href="./generative-ai-support.html">生成AI導入</a>
-        <a href="./services-list.html">できることリスト</a>
+        <a href="./tohoku-study.html">学習支援</a>
+        <a href="./column/">コラム</a>
+        <a aria-current="page" href="./about.html">会社概要</a>
+        <a href="./package.html">パッケージ</a>
         <a class="nav-cta" href="./index.html#contact">お問い合わせ</a>
       </nav>
       <div class="social-links" style="margin-top:10px;">
@@ -66,9 +62,22 @@
           <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" width="24"
             height="24" style="vertical-align:middle;" />
         </a>
+        <a href="./discord" target="_blank" rel="noopener" style="margin-left:15px;">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord" width="24"
+            height="24" style="vertical-align:middle;" />
+        </a>
       </div>
     </div>
   </header>
+
+  <div class="knowledge-share-banner">
+    <div class="wrap">
+      <p>
+        <span class="knowledge-share-label">ノウハウ共有が目的</span>
+        <span class="knowledge-share-text">提供するすべてのサービスはノウハウ共有が前提。広告運用からAI活用による業務改善まで伴走します。</span>
+      </p>
+    </div>
+  </div>
 
   <main>
     <section class="hero">
@@ -77,7 +86,7 @@
           <p class="tag tag--en">About Us</p>
           <h1>データと創造力で東北の成長を後押しする会社です</h1>
           <p class="lead">
-            東北学習サービスは、宮城県仙台市を拠点に広告運用とAI活用支援を提供するパートナーです。地域企業の挑戦を後押しし、成果につながるマーケティングと仕組みづくりを実現します。
+            東北学習サービスは、宮城県仙台市を拠点に広告運用とAI活用支援を提供するパートナーです。秋田・山形にゆかりのあるメンバーが、地域企業の挑戦を後押しし、成果につながるマーケティングと仕組みづくりを実現します。
           </p>
           <div class="hero-actions">
             <a class="btn" href="#company">会社情報を見る</a>
@@ -124,6 +133,10 @@
             <div>
               <dt>主要取引先</dt>
               <dd>宮城・東北エリアの中小企業</dd>
+            </div>
+            <div>
+              <dt>ゆかり・対応エリア</dt>
+              <dd>宮城を拠点に、秋田県・山形県の案件も経験。地元ゆかりのメンバーが対応します。</dd>
             </div>
             <div>
               <dt>連絡先</dt>
@@ -182,9 +195,30 @@
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">&copy; <span id="year"></span> 東北学習サービス</div>
+    <div class="wrap footer-layout">
+      <div>&copy; <span id="year"></span> 東北学習サービス</div>
+      <nav class="footer-nav">
+        <a href="./index.html">トップ</a>
+        <a href="./tohoku-study.html">学習支援</a>
+        <a href="./fortnite.html">Fortnite</a>
+        <a href="./ai-consultant.html">AIコンサルタント</a>
+        <a href="./generative-ai-support.html">生成AI導入</a>
+        <a href="./listing.html">リスティング</a>
+        <a href="./package.html">パッケージ</a>
+        <a href="./services-list.html">サービス一覧</a>
+        <a href="./column/">コラム</a>
+        <a aria-current="page" href="./about.html">会社概要</a>
+      </nav>
+      <div class="footer-social" aria-label="Discord">
+        <a href="./discord" target="_blank" rel="noopener">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord">
+        </a>
+      </div>
+    </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="./waves.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     const contact = document.querySelector('#contact');
@@ -194,6 +228,7 @@
       mailto.href = `mailto:${email}`;
       mailto.textContent = email;
     }
+    initSectionWaves();
   </script>
 </body>
 
