@@ -2,8 +2,5 @@
 GTM/
 scripts/
 
-# LP improvement documents
-docs/implementation_plan_*.md
-docs/lp_concrete_proposal_*.md
-docs/lp_proposal_*.md
-docs/task_*.md
+# LP improvement documents (organized)
+docs/plan/*.md
