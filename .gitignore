@@ -1,3 +1,6 @@
 *.md
 GTM/
 scripts/
+
+# LP improvement documents (organized)
+docs/plan/*.md
