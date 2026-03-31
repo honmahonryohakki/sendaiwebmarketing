@@ -9,7 +9,7 @@
     content="秋田・山形の企業向けに、AIで調査・報告の工数を圧縮し、Google/Instagramの実画面を開示しながら低コストでPDCAを何度も回す。大手のような人件費構造に縛られない伴走で、ノウハウと手順をすべて共有します。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css" />
   <!-- Google Tag Manager -->
   <script>
@@ -102,11 +102,16 @@
       <div class="wrap home-hero-grid">
         <div class="home-hero-copy">
           <p class="eyebrow reveal">AI × AD OPS × HANDS-ON</p>
-          <h1 class="reveal" style="--delay: 0.05s;">小さく速く成果を積む透明な広告伴走</h1>
+          <h1 class="reveal" style="--delay: 0.05s;">小さく速く成果を積む<br><span class="hero-emphasis">透明な広告伴走。</span></h1>
+          <p class="lead reveal" style="--delay: 0.12s;">
+            東北の中小企業に向けて、運用画面の共有、AIによる工数圧縮、週次の小さな改善を積み重ねながら、
+            広告と業務改善を誠実に前へ進めます。
+          </p>
           <div class="home-actions reveal" style="--delay: 0.2s;">
             <a class="btn" href="#contact">無料で話を聞く</a>
             <a class="text-link" href="#services">サービスを見る</a>
           </div>
+          <p class="home-client-strip reveal" style="--delay: 0.28s;">Google Ads / Meta Ads / GA4 / Looker Studio</p>
         </div>
         <div class="home-hero-panel">
           <div class="home-metrics">
@@ -142,7 +147,7 @@
     <section class="section">
       <div class="wrap">
         <h2>事業の特徴</h2>
-        <div class="cards" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+        <div class="cards feature-card-grid" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));">
           <article>
             <h3>[ネット広告] 初期設定12300/運用16500円</h3>
           </article>
@@ -201,7 +206,7 @@
             <h2 class="reveal" style="--delay: 0.05s;">数字で見るこれまでの実績</h2>
           </div>
           <div class="cards"
-            style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); text-align: center; gap: 20px;">
+            style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); text-align: center; gap: 20px;">
             <article class="reveal" style="--delay: 0.1s; padding: 30px 20px;">
               <p style="font-size: 36px; font-weight: 800; color: var(--accent); margin-bottom: 10px; line-height: 1;">
                 404<span style="font-size: 18px;">%</span></p>
@@ -290,7 +295,7 @@
             <p class="eyebrow reveal">WHY US</p>
             <h2 class="reveal" style="--delay: 0.05s;">選ばれる3つの理由</h2>
           </div>
-          <div class="cards" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+          <div class="cards" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));">
             <article class="reveal"
               style="background: var(--bg); padding: 30px; border-radius: 12px; border: 1px solid var(--line); --delay: 0.1s;">
               <div style="font-size: 32px; margin-bottom: 15px;">📈</div>
@@ -496,7 +501,7 @@
 
     function initHeroThree() {
       const canvas = document.getElementById('hero-three');
-      if (!canvas || !window.THREE || motionQuery.matches) return;
+      if (!canvas || !window.THREE || motionQuery.matches || window.getComputedStyle(canvas).display === 'none') return;
 
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
@@ -563,7 +568,7 @@
 
     function initHeroPoints() {
       const canvas = document.getElementById('hero-points');
-      if (!canvas || !window.THREE || motionQuery.matches) return;
+      if (!canvas || !window.THREE || motionQuery.matches || window.getComputedStyle(canvas).display === 'none') return;
 
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
@@ -636,29 +641,32 @@
     if (window.gsap) {
       const cards3d = gsap.utils.toArray('.hero-card-3d');
       const orbs = gsap.utils.toArray('.hero-orb');
+      const heroScene = document.querySelector('.hero-scene');
 
-      gsap.set(cards3d, { transformStyle: 'preserve-3d' });
-      gsap.to(cards3d, {
-        duration: 6,
-        y: '+=16',
-        rotationY: 12,
-        rotationX: -6,
-        ease: 'sine.inOut',
-        yoyo: true,
-        repeat: -1,
-        stagger: 0.35
-      });
+      if (!heroScene || window.getComputedStyle(heroScene).display !== 'none') {
+        gsap.set(cards3d, { transformStyle: 'preserve-3d' });
+        gsap.to(cards3d, {
+          duration: 6,
+          y: '+=16',
+          rotationY: 12,
+          rotationX: -6,
+          ease: 'sine.inOut',
+          yoyo: true,
+          repeat: -1,
+          stagger: 0.35
+        });
 
-      gsap.to(orbs, {
-        duration: 10,
-        x: '+=40',
-        y: '+=30',
-        scale: 1.05,
-        ease: 'sine.inOut',
-        yoyo: true,
-        repeat: -1,
-        stagger: 0.3
-      });
+        gsap.to(orbs, {
+          duration: 10,
+          x: '+=40',
+          y: '+=30',
+          scale: 1.05,
+          ease: 'sine.inOut',
+          yoyo: true,
+          repeat: -1,
+          stagger: 0.3
+        });
+      }
 
       if (window.ScrollTrigger) {
         gsap.registerPlugin(ScrollTrigger);
@@ -678,3 +686,4 @@
 </body>
 
 </html>
+

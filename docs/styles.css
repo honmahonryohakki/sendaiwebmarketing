@@ -525,7 +525,7 @@ body.home {
 .home-metrics {
   display: grid;
   gap: 12px;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
 }
 
 @media (max-width: 640px) {
@@ -638,7 +638,7 @@ body.home {
 .home-grid {
   display: grid;
   gap: 16px;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
 }
 
 .home-card {
@@ -715,7 +715,7 @@ body.home {
 .home-proof {
   display: grid;
   gap: 14px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
 }
 
 .home-cta-box {
@@ -1573,7 +1573,7 @@ h3 {
 .pricing-grid {
   display: grid;
   gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   margin-top: 40px;
 }
 
@@ -2362,5 +2362,773 @@ h3 {
     background-position: center top;
     background-size: cover;
     opacity: 0.1;
+  }
+}
+
+/* 2026 Stitch Reference Rebuild */
+:root {
+  --bg: #fafaf5;
+  --fg: #1a1c19;
+  --muted: #44474b;
+  --accent: #82533f;
+  --accent-2: #d7e4f4;
+  --accent-soft: #ffdbcd;
+  --card: #ffffff;
+  --line: rgba(116, 119, 124, 0.15);
+  --shadow: 0 34px 80px rgba(26, 28, 25, 0.06);
+  --glass: rgba(250, 250, 245, 0.74);
+  --surface: #fafaf5;
+  --surface-low: #f4f4ef;
+  --surface-high: #e8e8e3;
+  --surface-highest: #e3e3de;
+  --primary: #0d1925;
+  --text: var(--fg);
+}
+
+body {
+  font-family: "Noto Serif JP", "Hiragino Mincho ProN", YuMincho, serif;
+  background: var(--surface);
+  color: var(--fg);
+  line-height: 1.85;
+}
+
+h1,
+h2,
+h3,
+h4,
+.brand-name,
+.nav a,
+.btn,
+.eyebrow,
+.hero .tag,
+.home-client-strip,
+.home-metric .label,
+.knowledge-share-label,
+.footer-nav a,
+.footer-social,
+.pricing-card .price,
+.recommend-badge {
+  font-family: "Manrope", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+}
+
+.brand-tagline,
+.metric-list li,
+.home-metric .sub,
+.cards article p,
+.service-grid article p,
+.service-grid article ul,
+.faq details p,
+.note,
+.footer-social a,
+.footer-nav,
+.text-link,
+.contact .email a {
+  font-family: "Noto Serif JP", "Hiragino Mincho ProN", YuMincho, serif;
+}
+
+.site-header,
+.site-footer,
+.home .site-header {
+  background: rgba(250, 250, 245, 0.82);
+  border: none;
+  box-shadow: 0 10px 30px rgba(26, 28, 25, 0.04);
+  backdrop-filter: blur(24px);
+}
+
+.site-header .wrap,
+.site-footer .wrap,
+.home .site-header .wrap {
+  min-height: 72px;
+}
+
+.brand-name {
+  letter-spacing: -0.02em;
+  color: var(--primary);
+}
+
+.brand-tagline {
+  color: rgba(68, 71, 75, 0.82);
+}
+
+.nav {
+  gap: 24px;
+}
+
+.nav a {
+  color: rgba(68, 71, 75, 0.72);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nav a:hover,
+.nav a:focus,
+.nav a[aria-current="page"] {
+  color: var(--primary);
+}
+
+.nav-cta,
+.home .nav-cta,
+.btn {
+  background: linear-gradient(135deg, #0d1925, #222e3a);
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 24px 48px rgba(13, 25, 37, 0.12);
+}
+
+.nav-cta:hover,
+.nav-cta:focus,
+.home .nav-cta:hover,
+.home .nav-cta:focus,
+.btn:hover {
+  background: linear-gradient(135deg, #122233, #2a3744);
+  color: #fff;
+  box-shadow: 0 26px 54px rgba(13, 25, 37, 0.16);
+}
+
+.knowledge-share-banner {
+  background: transparent;
+}
+
+.knowledge-share-banner .wrap {
+  padding-top: 8px;
+}
+
+.knowledge-share-banner p {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  gap: 14px;
+}
+
+.knowledge-share-label {
+  padding: 0;
+  background: transparent;
+  color: var(--accent);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.knowledge-share-text {
+  color: rgba(68, 71, 75, 0.72);
+}
+
+.section,
+.discount-offer {
+  border-top: none;
+}
+
+.section::before {
+  content: none;
+}
+
+main > .section,
+main > .discount-offer {
+  background: var(--surface);
+}
+
+main > .section:nth-of-type(even) {
+  background: var(--surface-low);
+}
+
+body.home,
+.home main {
+  background: var(--surface);
+}
+
+.home-hero {
+  position: relative;
+  min-height: 880px;
+  padding: 132px 0 96px;
+  background: var(--surface);
+}
+
+.home-hero-grid {
+  position: relative;
+  z-index: 2;
+  gap: 56px;
+  align-items: center;
+}
+
+.hero-bg-image::before {
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(250, 250, 245, 0.98) 0%, rgba(250, 250, 245, 0.9) 36%, rgba(250, 250, 245, 0.4) 60%, rgba(250, 250, 245, 0.06) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(13, 25, 37, 0.04));
+}
+
+.hero-bg-image::after {
+  background:
+    linear-gradient(90deg, rgba(13, 25, 37, 0) 0%, rgba(13, 25, 37, 0.18) 100%),
+    url("./images/google_ads_manager_female.png") right 8% center / contain no-repeat;
+  opacity: 1;
+  filter: grayscale(1) contrast(0.88) brightness(0.92);
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(90deg, rgba(250, 250, 245, 0.1) 0%, rgba(250, 250, 245, 0) 45%, rgba(13, 25, 37, 0.08) 100%);
+}
+
+.home-hero-copy {
+  max-width: 680px;
+}
+
+.eyebrow,
+.hero .tag {
+  color: rgba(130, 83, 63, 0.82);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+}
+
+.eyebrow::before {
+  width: 36px;
+  background: rgba(130, 83, 63, 0.36);
+}
+
+.home-hero h1,
+.hero h1 {
+  font-family: "Manrope", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  font-size: clamp(44px, 7vw, 78px);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+  color: var(--primary);
+  margin-bottom: 24px;
+  max-width: 760px;
+}
+
+.hero-emphasis {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--accent);
+  font-family: "Noto Serif JP", "Hiragino Mincho ProN", YuMincho, serif;
+  font-weight: 500;
+}
+
+.home-hero .lead,
+.hero .lead {
+  max-width: 560px;
+  color: rgba(68, 71, 75, 0.86);
+  font-size: 18px;
+  line-height: 1.95;
+}
+
+.home-actions {
+  margin-top: 26px;
+  margin-bottom: 18px;
+}
+
+.text-link {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: rgba(130, 83, 63, 0.4);
+  text-underline-offset: 6px;
+}
+
+.home-client-strip {
+  color: rgba(68, 71, 75, 0.58);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 18px 0 0;
+}
+
+.hero-three-canvas,
+.hero-points-canvas,
+.hero-scene {
+  display: none !important;
+}
+
+.home-hero-panel {
+  max-width: 430px;
+  margin: 120px 0 0 auto;
+}
+
+.home-metrics {
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.home-metric {
+  background: var(--surface-low);
+  border: none;
+  border-radius: 18px;
+  padding: 24px 24px 22px;
+  box-shadow: none;
+}
+
+.home-metric:nth-child(2) {
+  background: var(--card);
+}
+
+.home-metric:nth-child(3) {
+  background: var(--surface-high);
+}
+
+.home-metric .label {
+  color: rgba(130, 83, 63, 0.86);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  margin-bottom: 12px;
+}
+
+.home-metric .value {
+  color: var(--primary);
+  font-family: "Manrope", "Hiragino Sans", sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.home-metric .sub,
+.metric-list li {
+  color: rgba(68, 71, 75, 0.82);
+  font-size: 14px;
+}
+
+.metric-list li::before,
+.evidence-list li::before {
+  background: rgba(130, 83, 63, 0.72);
+}
+
+h2 {
+  font-family: "Manrope", "Hiragino Sans", sans-serif;
+  font-size: clamp(34px, 5vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1.02;
+  color: var(--primary);
+  gap: 10px;
+}
+
+h2::after {
+  width: 56px;
+  height: 1px;
+  background: rgba(130, 83, 63, 0.45);
+}
+
+h3 {
+  font-family: "Manrope", "Hiragino Sans", sans-serif;
+  color: var(--primary);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.home-section-head p.lead,
+.home-section p.lead,
+.cards article p,
+.service-grid article p,
+.faq details p,
+.offer-text,
+.note {
+  color: rgba(68, 71, 75, 0.82);
+}
+
+.cards,
+.service-grid,
+.pricing-grid,
+.home-proof {
+  gap: 28px;
+}
+
+.cards article,
+.service-grid article,
+.pricing-card,
+.faq details,
+.home-card,
+.home-flow li,
+.steps li,
+.message,
+.offer-details {
+  border: none;
+  border-radius: 18px;
+  background: var(--card);
+  box-shadow: none;
+}
+
+.cards article,
+.service-grid article,
+.pricing-card,
+.faq details,
+.home-card,
+.home-flow li,
+.steps li {
+  padding: 30px;
+}
+
+.cards article::after,
+.service-grid article::after {
+  content: none;
+}
+
+.cards article:hover,
+.service-grid article:hover,
+.pricing .cards article:hover,
+.steps li:hover,
+.faq details:hover,
+.pricing-card:hover,
+.home-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 60px rgba(26, 28, 25, 0.06);
+  border-color: transparent;
+}
+
+.home-card,
+.home-flow li,
+.steps li {
+  background: var(--surface-low);
+}
+
+.feature-card-grid {
+  align-items: stretch;
+}
+
+.feature-card-grid article {
+  display: flex;
+  align-items: flex-start;
+  min-height: 0;
+  padding: 26px 24px;
+}
+
+.feature-card-grid h3 {
+  margin: 0;
+  font-size: clamp(18px, 1.8vw, 22px);
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+}
+
+.home-flow li {
+  padding: 24px 24px 24px 76px;
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+}
+
+.home-flow li::before {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.discount-offer {
+  padding: 0 0 28px;
+  background: var(--surface-low);
+}
+
+.offer-details {
+  max-width: 960px;
+  padding: 32px;
+  background: var(--surface-high);
+}
+
+.offer-summary {
+  font-family: "Manrope", "Hiragino Sans", sans-serif;
+  font-size: clamp(24px, 4vw, 34px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--primary);
+}
+
+.offer-summary::after {
+  border-color: var(--accent);
+}
+
+.pricing-card.recommended {
+  background: var(--surface-low);
+  box-shadow: inset 0 0 0 1px rgba(130, 83, 63, 0.12);
+}
+
+.recommend-badge {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.company-grid dl div {
+  border-bottom: none;
+  padding: 18px 0;
+}
+
+.company-grid dt {
+  color: rgba(68, 71, 75, 0.68);
+  font-family: "Manrope", "Hiragino Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.footer-layout {
+  align-items: flex-start;
+  gap: 28px;
+}
+
+.site-footer {
+  background: var(--surface-low);
+}
+
+.footer-nav a {
+  color: rgba(68, 71, 75, 0.78);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.footer-social a {
+  width: auto;
+  height: auto;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+}
+
+.footer-social img,
+.social-links img {
+  opacity: 0.54;
+}
+
+.social-links a,
+.footer-social a {
+  box-shadow: none;
+}
+
+.social-links a:hover,
+.social-links a:focus,
+.footer-social a:hover,
+.footer-social a:focus {
+  transform: none;
+  background: transparent;
+  border-color: transparent;
+}
+
+.scroll-indicator,
+.note::before {
+  display: none;
+}
+
+/* Prevent mixed Japanese/English copy and grid children from forcing horizontal overflow. */
+.site-header .wrap > *,
+.site-footer .wrap > *,
+.hero-layout > *,
+.home-hero-grid > *,
+.cards > *,
+.service-grid > *,
+.pricing-grid > * {
+  min-width: 0;
+}
+
+.brand,
+.brand-text,
+.knowledge-share-text,
+.home-hero-copy,
+.home-hero-panel,
+.home-metric,
+.cards article,
+.service-grid article,
+.pricing-card,
+.message,
+.timeline li {
+  min-width: 0;
+}
+
+h1,
+h2,
+h3,
+.lead,
+.note,
+.brand-name,
+.brand-tagline,
+.knowledge-share-text,
+.home-client-strip,
+.metric-list li,
+.service-grid article li,
+.service-grid article p,
+.cards article p,
+.pricing-card li,
+.faq details p {
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 960px) {
+  .site-header .wrap,
+  .home .site-header .wrap {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 24px;
+    row-gap: 0;
+    flex-wrap: nowrap;
+  }
+
+  .nav {
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    min-width: 0;
+  }
+
+  .social-links {
+    justify-self: end;
+  }
+
+  .home-hero-grid {
+    grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.68fr);
+  }
+
+  .cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 960px) {
+  .site-header .wrap,
+  .home .site-header .wrap {
+    align-items: center;
+    row-gap: 12px;
+  }
+
+  .brand {
+    flex: 1 1 auto;
+  }
+
+  .nav {
+    display: flex;
+    order: 3;
+    flex: 1 1 100%;
+    gap: 10px 14px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .nav a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .home-hero {
+    min-height: auto;
+    padding: 120px 0 72px;
+  }
+
+  .home-hero-grid {
+    gap: 28px;
+  }
+
+  .home-hero-panel {
+    margin: 0;
+    max-width: none;
+  }
+
+  .hero-bg-image::after {
+    background-position: center top;
+    background-size: cover;
+    opacity: 0.22;
+  }
+
+  .hero-overlay,
+  .hero-bg-image::before {
+    background:
+      linear-gradient(180deg, rgba(250, 250, 245, 0.96) 0%, rgba(250, 250, 245, 0.86) 42%, rgba(250, 250, 245, 0.42) 100%);
+  }
+}
+
+@media (max-width: 720px) {
+  .site-header .wrap,
+  .home .site-header .wrap {
+    padding: 14px 20px;
+    min-height: auto;
+    row-gap: 10px;
+  }
+
+  .brand {
+    width: 100%;
+  }
+
+  .brand-tagline {
+    letter-spacing: 0.04em;
+  }
+
+  .nav {
+    display: flex;
+    width: calc(100% + 40px);
+    margin: 0 -20px;
+    padding: 0 20px 6px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .nav::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .nav::-webkit-scrollbar-thumb {
+    background: rgba(68, 71, 75, 0.22);
+    border-radius: 999px;
+  }
+
+  .nav a {
+    font-size: 11px;
+  }
+
+  .nav-cta,
+  .home .nav-cta {
+    padding: 10px 14px;
+  }
+
+  .feature-card-grid article {
+    padding: 24px 22px;
+  }
+
+  .feature-card-grid h3 {
+    font-size: 20px;
+    line-height: 1.55;
+  }
+
+  .home-flow li {
+    padding: 20px 20px 20px 64px;
+    align-items: flex-start;
+  }
+
+  .knowledge-share-banner .wrap {
+    padding: 0 20px;
+  }
+
+  .home-hero h1,
+  .hero h1 {
+    font-size: clamp(40px, 14vw, 58px);
+  }
+
+  h2 {
+    font-size: clamp(30px, 11vw, 44px);
+  }
+
+  .cards article,
+  .service-grid article,
+  .pricing-card,
+  .faq details,
+  .home-card,
+  .home-flow li,
+  .steps li,
+  .offer-details {
+    padding: 24px;
+  }
+
+  .home-client-strip {
+    letter-spacing: 0.12em;
+    line-height: 1.7;
+  }
+
+  .home-flow li {
+    padding: 20px 20px 20px 64px;
   }
 }
