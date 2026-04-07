@@ -55,12 +55,26 @@
 
         .vs-card.outsource {
             background: #f0f0f0;
-            color: #777;
+            color: #263026;
+        }
+
+        .vs-card.outsource h3,
+        .vs-card.outsource li {
+            color: #1b241d;
         }
 
         .vs-card.inhouse {
-            background: var(--accent-soft);
+            background: rgba(6, 16, 11, 0.88);
             border: 2px solid var(--accent);
+            color: rgba(247, 255, 249, 0.88);
+        }
+
+        .vs-card.inhouse h3 {
+            color: #f7fff9;
+        }
+
+        .vs-card.inhouse li {
+            color: rgba(247, 255, 249, 0.82);
         }
 
         .service-detail-grid {
@@ -72,10 +86,19 @@
 
         .service-detail-card {
             background: white;
+            color: #1b241d;
             padding: 30px;
             border-radius: 16px;
             border: 1px solid var(--line);
             transition: transform 0.3s ease;
+        }
+
+        .service-detail-card h3 {
+            color: #243126;
+        }
+
+        .service-detail-card p {
+            color: #4c5b4f;
         }
 
         .service-detail-card:hover {
@@ -105,9 +128,36 @@
             display: block;
         }
 
+        .marketer-training .pricing-card.recommended {
+            padding-top: 44px;
+        }
+
+        .marketer-training .recommend-badge {
+            top: 16px;
+            left: 30px;
+            right: auto;
+            transform: none;
+            max-width: calc(100% - 60px);
+            white-space: nowrap;
+        }
+
         @media (max-width: 768px) {
             .vs-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .marketer-training .vs-card h3,
+            .marketer-training .home-section-head h2 {
+                white-space: normal;
+                overflow-wrap: anywhere;
+            }
+
+            .marketer-training .vs-card h3 {
+                font-size: 20px;
+            }
+
+            .marketer-training .home-section-head h2 {
+                font-size: clamp(28px, 8.2vw, 34px);
             }
         }
 
