@@ -3995,3 +3995,341 @@ iframe {
     padding-inline: 14px;
   }
 }
+
+/* KINETIC header and overlay menu */
+body.is-menu-open {
+  overflow: hidden;
+}
+
+.site-header .wrap,
+.home .site-header .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+  align-items: center;
+  min-height: 74px;
+  gap: clamp(12px, 2.5vw, 28px);
+  flex-wrap: nowrap;
+}
+
+.site-header .brand,
+.home .site-header .brand {
+  min-width: 0;
+  max-width: min(52vw, 420px);
+}
+
+.site-header .brand-text,
+.home .site-header .brand-text {
+  min-width: 0;
+}
+
+.site-header .nav,
+.home .site-header .nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  gap: clamp(10px, 1.6vw, 18px);
+  flex: 0 1 auto;
+  flex-wrap: nowrap;
+  overflow: visible;
+}
+
+.nav .nav-link {
+  white-space: nowrap;
+}
+
+.menu-toggle,
+.site-menu-close {
+  appearance: none;
+  border: 1px solid rgba(10, 255, 153, 0.58);
+  background: rgba(10, 255, 153, 0.08);
+  color: var(--green);
+  font-family: "Space Grotesk", "Manrope", "Noto Sans JP", sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  padding: 10px 14px;
+  border-radius: 999px;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus,
+.site-menu-close:hover,
+.site-menu-close:focus {
+  background: rgba(10, 255, 153, 0.16);
+  box-shadow: 0 0 24px rgba(10, 255, 153, 0.28);
+  outline: none;
+}
+
+.menu-toggle__icon {
+  display: inline-grid;
+  width: 20px;
+  gap: 5px;
+}
+
+.menu-toggle__icon span {
+  display: block;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.site-menu-overlay[hidden] {
+  display: none !important;
+}
+
+.site-menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(10, 255, 153, 0.16), transparent 30%),
+    radial-gradient(circle at 86% 76%, rgba(10, 255, 153, 0.1), transparent 34%),
+    #050605;
+  color: #f7fff9;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.site-menu-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.site-menu-overlay__panel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: clamp(24px, 4vw, 56px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.site-menu-overlay__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: clamp(28px, 5vw, 72px);
+}
+
+.site-menu-overlay__eyebrow {
+  margin: 0;
+  color: rgba(247, 255, 249, 0.68);
+  font-family: "Space Grotesk", "Manrope", "Noto Sans JP", sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+}
+
+.site-menu-close {
+  flex: 0 0 auto;
+  min-height: 42px;
+  padding: 10px 16px;
+  border-radius: 999px;
+}
+
+.site-menu-list {
+  display: grid;
+  gap: 0;
+}
+
+.site-menu-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 18px;
+  padding: clamp(12px, 2vw, 22px) 0;
+  border-bottom: 1px solid rgba(10, 255, 153, 0.22);
+  color: #f7fff9;
+  text-decoration: none;
+}
+
+.site-menu-item:first-child {
+  border-top: 1px solid rgba(10, 255, 153, 0.22);
+}
+
+.site-menu-item:hover,
+.site-menu-item:focus {
+  color: var(--green);
+  outline: none;
+}
+
+.site-menu-item__label {
+  font-family: "Space Grotesk", "Manrope", "Noto Sans JP", sans-serif;
+  font-size: clamp(40px, 8.2vw, 112px);
+  font-weight: 900;
+  line-height: 0.86;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.site-menu-item__caption {
+  align-self: center;
+  color: rgba(247, 255, 249, 0.68);
+  font-size: clamp(12px, 1.8vw, 15px);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+}
+
+.site-menu-sub {
+  display: flex;
+  gap: 14px 24px;
+  flex-wrap: wrap;
+  margin-top: clamp(28px, 5vw, 56px);
+}
+
+.site-menu-sub a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(247, 255, 249, 0.68);
+  font-family: "Space Grotesk", "Manrope", "Noto Sans JP", sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.site-menu-sub img {
+  width: 18px;
+  height: 18px;
+  filter: invert(1);
+  opacity: 0.78;
+}
+
+.site-menu-sub a:hover,
+.site-menu-sub a:focus {
+  color: var(--green);
+}
+
+@media (max-width: 1120px) {
+  .site-header .nav .nav-link,
+  .home .site-header .nav .nav-link {
+    display: none;
+  }
+
+  .site-header .brand,
+  .home .site-header .brand {
+    max-width: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-header .wrap,
+  .home .site-header .wrap {
+    grid-template-columns: minmax(0, 1fr) auto;
+    min-height: 66px;
+    padding: 12px 16px;
+    row-gap: 0;
+  }
+
+  .site-header .brand,
+  .home .site-header .brand {
+    width: auto;
+    gap: 10px;
+  }
+
+  .site-header .brand-logo,
+  .home .site-header .brand-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .site-header .brand-name,
+  .home .site-header .brand-name {
+    font-size: clamp(14px, 4.2vw, 16px);
+    letter-spacing: 0.02em;
+  }
+
+  .site-header .brand-tagline,
+  .home .site-header .brand-tagline {
+    display: none;
+  }
+
+  .site-header .nav,
+  .home .site-header .nav {
+    width: auto;
+    min-width: 0;
+    gap: 8px;
+  }
+
+  .nav-cta,
+  .home .nav-cta {
+    padding: 9px 12px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+
+  .menu-toggle {
+    min-height: 38px;
+    padding: 9px 11px;
+  }
+
+  .menu-toggle__text {
+    display: none;
+  }
+
+  .site-menu-overlay__panel {
+    padding: 22px 18px 28px;
+  }
+
+  .site-menu-overlay__top {
+    margin-bottom: 26px;
+  }
+
+  .site-menu-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 14px 0;
+  }
+
+  .site-menu-item__label {
+    font-size: clamp(38px, 15vw, 64px);
+    line-height: 0.9;
+  }
+
+  .site-menu-item__caption {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 380px) {
+  .site-header .brand-logo,
+  .home .site-header .brand-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .site-header .brand-name,
+  .home .site-header .brand-name {
+    font-size: 13px;
+  }
+
+  .nav-cta,
+  .home .nav-cta {
+    padding: 8px 10px;
+  }
+
+  .menu-toggle {
+    padding: 8px 10px;
+  }
+}

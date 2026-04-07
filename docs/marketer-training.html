@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
+    <script src="./site-menu.js" defer></script>
     <!-- Google Tag Manager -->
     <script>
         (function (w, d, s, l, i) {
@@ -171,8 +172,16 @@
                     <span class="brand-tagline">ノウハウをすべて渡す透明な伴走チーム</span>
                 </div>
             </a>
-            <nav class="nav">
+            <nav class="nav" aria-label="主要ナビゲーション">
+                <a class="nav-link" href="./services-list.html">サービス一覧</a>
+                <a class="nav-link" href="./column/">コラム</a>
+                <a class="nav-link" href="./about.html">会社概要</a>
                 <a class="nav-cta" href="#contact">無料相談</a>
+                <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-expanded="false"
+                    aria-controls="site-menu-overlay">
+                    <span class="menu-toggle__text">Menu</span>
+                    <span class="menu-toggle__icon" aria-hidden="true"><span></span><span></span></span>
+                </button>
             </nav>
         </div>
     </header>
