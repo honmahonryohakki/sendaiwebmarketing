@@ -1,0 +1,155 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2026-04-18 01:43:46",
+  "containerVersion": {
+    "path": "accounts/6315860902/containers/231548752/versions/0",
+    "accountId": "6315860902",
+    "containerId": "231548752",
+    "containerVersionId": "0",
+    "container": {
+      "path": "accounts/6315860902/containers/231548752",
+      "accountId": "6315860902",
+      "containerId": "231548752",
+      "name": "sendaimarketing",
+      "publicId": "GTM-NSV6HW8P",
+      "usageContext": [
+        "WEB"
+      ],
+      "fingerprint": "1759564227835",
+      "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/6315860902/containers/231548752/workspaces?apiLink=container",
+      "features": {
+        "supportUserPermissions": true,
+        "supportEnvironments": true,
+        "supportWorkspaces": true,
+        "supportGtagConfigs": false,
+        "supportBuiltInVariables": true,
+        "supportClients": false,
+        "supportFolders": true,
+        "supportTags": true,
+        "supportTemplates": true,
+        "supportTriggers": true,
+        "supportVariables": true,
+        "supportVersions": true,
+        "supportZones": true,
+        "supportTransformations": false
+      },
+      "tagIds": [
+        "GTM-NSV6HW8P"
+      ]
+    },
+    "tag": [
+      {
+        "accountId": "6315860902",
+        "containerId": "231548752",
+        "tagId": "51",
+        "name": "Popup - Google Ads Visitor Thanks",
+        "type": "html",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "html",
+            "value": "<script>\n(function () {\n  var HEADING = '\\u5E83\\u544A\\u3092\\u30AF\\u30EA\\u30C3\\u30AF\\u3057\\u305F\\u65B9\\u9650\\u5B9A\\u30AD\\u30E3\\u30F3\\u30DA\\u30FC\\u30F3';\n  var MESSAGE = 'HP\\u4E0A\\u306E\\u30CD\\u30BA\\u30DF\\u3092\\u898B\\u3064\\u3051\\u305F\\u3089\\u30EA\\u30B9\\u30C6\\u30A3\\u30F3\\u30B0\\u5E83\\u544A\\u8A2D\\u5B9A\\u304C\\u7121\\u6599\\u3002\\u7B54\\u3048\\u306FGoogle\\u30D5\\u30A9\\u30FC\\u30E0\\u3078';\n  var ACCENT = '#d97706';\n  var SOFT_BG = '#fff7ed';\n\n  var showModal = function () {\n    if (!document.body || document.getElementById('lp-popup-overlay-v5')) {\n      return;\n    }\n\n    var overlay = document.createElement('div');\n    overlay.id = 'lp-popup-overlay-v5';\n    overlay.style.cssText = [\n      'position:fixed',\n      'top:0',\n      'right:0',\n      'bottom:0',\n      'left:0',\n      'z-index:2147483000',\n      'background:rgba(0,0,0,0.45)',\n      'display:flex',\n      'align-items:center',\n      'justify-content:center',\n      'padding:20px'\n    ].join(';');\n\n    var modal = document.createElement('div');\n    modal.setAttribute('role', 'dialog');\n    modal.setAttribute('aria-modal', 'true');\n    modal.style.cssText = [\n      'width:92vw',\n      'max-width:460px',\n      'background:#ffffff',\n      'border-radius:14px',\n      'border:2px solid ' + ACCENT,\n      'box-shadow:0 24px 64px rgba(0,0,0,0.28)',\n      'overflow:hidden'\n    ].join(';');\n\n    var head = document.createElement('div');\n    head.style.cssText = [\n      'padding:14px 18px',\n      'font-weight:700',\n      'font-size:16px',\n      'background:' + SOFT_BG,\n      'color:' + ACCENT\n    ].join(';');\n    head.appendChild(document.createTextNode(HEADING));\n\n    var body = document.createElement('div');\n    body.style.cssText = 'padding:18px 18px 10px;color:#111827;line-height:1.75;font-size:15px;';\n    body.appendChild(document.createTextNode(MESSAGE));\n\n    var footer = document.createElement('div');\n    footer.style.cssText = 'display:flex;justify-content:flex-end;padding:0 18px 18px;';\n\n    var closeBtn = document.createElement('button');\n    closeBtn.type = 'button';\n    closeBtn.appendChild(document.createTextNode('\\u9589\\u3058\\u308B'));\n    closeBtn.style.cssText = [\n      'border:none',\n      'border-radius:8px',\n      'padding:9px 14px',\n      'font-size:14px',\n      'font-weight:700',\n      'cursor:pointer',\n      'background:' + ACCENT,\n      'color:#ffffff'\n    ].join(';');\n\n    var closeModal = function () {\n      if (overlay && overlay.parentNode) {\n        overlay.parentNode.removeChild(overlay);\n      }\n    };\n\n    closeBtn.addEventListener('click', closeModal);\n    overlay.addEventListener('click', function (event) {\n      if (event.target === overlay) {\n        closeModal();\n      }\n    });\n\n    footer.appendChild(closeBtn);\n    modal.appendChild(head);\n    modal.appendChild(body);\n    modal.appendChild(footer);\n    overlay.appendChild(modal);\n    document.body.appendChild(overlay);\n  };\n\n  try {\n    if (window.__lpPopupShownV5) {\n      return;\n    }\n\n    var run = function () {\n      if (window.__lpPopupShownV5) {\n        return;\n      }\n      showModal();\n      window.__lpPopupShownV5 = true;\n    };\n\n    if (document.readyState === 'loading') {\n      document.addEventListener('DOMContentLoaded', run);\n    } else {\n      run();\n    }\n  } catch (e) {\n    // Fail safe\n  }\n})();\n</script>"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "supportDocumentWrite",
+            "value": "false"
+          }
+        ],
+        "fingerprint": "1771918321207",
+        "firingTriggerId": [
+          "56"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NOT_SET"
+        }
+      },
+      {
+        "accountId": "6315860902",
+        "containerId": "231548752",
+        "tagId": "52",
+        "name": "Popup - Google Referrer Thanks",
+        "type": "html",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "html",
+            "value": "<script>\n(function () {\n  var HEADING = '\\u3054\\u6765\\u8A2A\\u3042\\u308A\\u304C\\u3068\\u3046\\u3054\\u3056\\u3044\\u307E\\u3059';\n  var MESSAGE = 'ai \\u30A8\\u30FC\\u30B8\\u30A7\\u30F3\\u30C8\\u306E\\u4F5C\\u6210\\u3082\\u53D7\\u3051\\u305F\\u307E\\u3063\\u3066\\u304A\\u308A\\u307E\\u3059';\n  var ACCENT = '#1d4ed8';\n  var SOFT_BG = '#eff6ff';\n\n  var showModal = function () {\n    if (!document.body || document.getElementById('lp-popup-overlay-v5')) {\n      return;\n    }\n\n    var overlay = document.createElement('div');\n    overlay.id = 'lp-popup-overlay-v5';\n    overlay.style.cssText = [\n      'position:fixed',\n      'top:0',\n      'right:0',\n      'bottom:0',\n      'left:0',\n      'z-index:2147483000',\n      'background:rgba(0,0,0,0.45)',\n      'display:flex',\n      'align-items:center',\n      'justify-content:center',\n      'padding:20px'\n    ].join(';');\n\n    var modal = document.createElement('div');\n    modal.setAttribute('role', 'dialog');\n    modal.setAttribute('aria-modal', 'true');\n    modal.style.cssText = [\n      'width:92vw',\n      'max-width:460px',\n      'background:#ffffff',\n      'border-radius:14px',\n      'border:2px solid ' + ACCENT,\n      'box-shadow:0 24px 64px rgba(0,0,0,0.28)',\n      'overflow:hidden'\n    ].join(';');\n\n    var head = document.createElement('div');\n    head.style.cssText = [\n      'padding:14px 18px',\n      'font-weight:700',\n      'font-size:16px',\n      'background:' + SOFT_BG,\n      'color:' + ACCENT\n    ].join(';');\n    head.appendChild(document.createTextNode(HEADING));\n\n    var body = document.createElement('div');\n    body.style.cssText = 'padding:18px 18px 10px;color:#111827;line-height:1.75;font-size:15px;';\n    body.appendChild(document.createTextNode(MESSAGE));\n\n    var footer = document.createElement('div');\n    footer.style.cssText = 'display:flex;justify-content:flex-end;padding:0 18px 18px;';\n\n    var closeBtn = document.createElement('button');\n    closeBtn.type = 'button';\n    closeBtn.appendChild(document.createTextNode('\\u9589\\u3058\\u308B'));\n    closeBtn.style.cssText = [\n      'border:none',\n      'border-radius:8px',\n      'padding:9px 14px',\n      'font-size:14px',\n      'font-weight:700',\n      'cursor:pointer',\n      'background:' + ACCENT,\n      'color:#ffffff'\n    ].join(';');\n\n    var closeModal = function () {\n      if (overlay && overlay.parentNode) {\n        overlay.parentNode.removeChild(overlay);\n      }\n    };\n\n    closeBtn.addEventListener('click', closeModal);\n    overlay.addEventListener('click', function (event) {\n      if (event.target === overlay) {\n        closeModal();\n      }\n    });\n\n    footer.appendChild(closeBtn);\n    modal.appendChild(head);\n    modal.appendChild(body);\n    modal.appendChild(footer);\n    overlay.appendChild(modal);\n    document.body.appendChild(overlay);\n  };\n\n  try {\n    if (window.__lpPopupShownV5) {\n      return;\n    }\n\n    var run = function () {\n      if (window.__lpPopupShownV5) {\n        return;\n      }\n      showModal();\n      window.__lpPopupShownV5 = true;\n    };\n\n    if (document.readyState === 'loading') {\n      document.addEventListener('DOMContentLoaded', run);\n    } else {\n      run();\n    }\n  } catch (e) {\n    // Fail safe\n  }\n})();\n</script>"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "supportDocumentWrite",
+            "value": "false"
+          }
+        ],
+        "fingerprint": "1771918321206",
+        "firingTriggerId": [
+          "55"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NOT_SET"
+        }
+      }
+    ],
+    "trigger": [
+      {
+        "accountId": "6315860902",
+        "containerId": "231548752",
+        "triggerId": "55",
+        "name": "CE - lp_popup_google_referrer",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "lp_popup_google_referrer"
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1771918321153"
+      },
+      {
+        "accountId": "6315860902",
+        "containerId": "231548752",
+        "triggerId": "56",
+        "name": "CE - lp_popup_ads",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "lp_popup_ads"
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1771918321153"
+      }
+    ]
+  }
+}
