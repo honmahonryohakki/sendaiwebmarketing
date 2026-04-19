@@ -141,6 +141,45 @@
             white-space: nowrap;
         }
 
+        .contact-accordion-trigger {
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            font-size: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+            padding: 18px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .contact-accordion-trigger:hover,
+        .contact-accordion-trigger:focus-visible {
+            background: rgba(255, 255, 255, 0.16);
+            border-color: rgba(255, 255, 255, 0.55);
+            outline: none;
+        }
+
+        .contact-accordion-icon {
+            font-size: 30px;
+            line-height: 1;
+            margin-left: 16px;
+            transition: transform 0.2s ease;
+        }
+
+        .contact-accordion-trigger[aria-expanded="true"] .contact-accordion-icon {
+            transform: rotate(45deg);
+        }
+
+        .contact-accordion-panel {
+            margin-top: 18px;
+        }
+
         @media (max-width: 768px) {
             .vs-grid {
                 grid-template-columns: 1fr;
@@ -158,6 +197,11 @@
 
             .marketer-training .home-section-head h2 {
                 font-size: clamp(28px, 8.2vw, 34px);
+            }
+
+            .contact-accordion-trigger {
+                font-size: 17px;
+                padding: 16px 18px;
             }
         }
 
@@ -226,26 +270,43 @@
     </header>
 
     <main>
-        <!-- Hero -->
+        <!-- [A] Attention: Hero -->
         <section class="home-hero hero-content">
             <div class="hero-bg-image" aria-hidden="true" style="opacity: 0.15; filter: grayscale(1);"></div>
             <div class="wrap">
                 <div class="home-hero-copy">
                     <p class="eyebrow">Professional Training & Companion</p>
-                    <h1>マーケティングを"外注"から"内製"へ。</h1>
-                    <p class="lead">自社でリサーチ、広告、分析を回せるマーケターを育てる。<br>AI活用による圧倒的なスピードと透明な知見共有で、社内に再現可能な成長エンジンを構築します。</p>
+                    <h1>広告費を"代理店"に払い続けて、<br>社内に何が残りましたか？</h1>
+                    <p class="lead">6か月で、1名から始める内製化。<br>リサーチ・広告・AI活用を社内資産に変える<br>伴走型マーケター育成プログラム。</p>
                     <div class="home-actions">
-                        <a class="btn" href="#contact">無料で詳しく話を聞く</a>
+                        <a class="btn" href="#contact">30分で内製化の"第一歩"を話し合う（無料）</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Problem & Solution -->
+        <!-- [I] Interest: 問題提起 -->
         <section class="section">
             <div class="wrap">
                 <div class="home-section-head">
-                    <h2>なぜ、今「内製化」なのか</h2>
+                    <h2>外注で解決できなかったこと、ありませんか？</h2>
+                </div>
+                <div class="problem-box reveal">
+                    <ul class="metric-list" style="font-size: 16px; line-height: 2;">
+                        <li>毎月の広告費は払っているのに、効果の理由が分からない</li>
+                        <li>担当が変わるたびに、また一から説明しなければならない</li>
+                        <li>AIツールが増えても、自社で使いこなせていない</li>
+                    </ul>
+                    <p style="margin-top: 24px; font-weight: 700; color: var(--accent);">これは「代理店が悪い」のではなく、<br>「知見が社外に出続ける」構造の問題です。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- [I] Interest: VS比較 -->
+        <section class="section" style="padding-top: 0;">
+            <div class="wrap">
+                <div class="home-section-head">
+                    <h2>同じ広告費で、何が変わるか</h2>
                     <p class="lead">外部依存のリスクを解消し、自社に資産を蓄積する時代です。</p>
                 </div>
                 <div class="vs-grid">
@@ -271,8 +332,89 @@
             </div>
         </section>
 
-        <!-- Services -->
+        <!-- [I] Interest: ターゲット確認 -->
         <section class="home-section alt">
+            <div class="wrap">
+                <div class="home-section-head text-center" style="margin-left: auto; margin-right: auto;">
+                    <h2>こんな方が活用しています</h2>
+                </div>
+                <div class="home-grid">
+                    <div class="home-card reveal">
+                        <h3>個人事業主・フリーランス</h3>
+                        <p>広告を自走させて売上を安定させたい。代理店に頼らず、自分で判断・改善できる力を身につけたい方。</p>
+                    </div>
+                    <div class="home-card reveal" style="--delay: 0.1s;">
+                        <h3>中小企業の経営者・幹部</h3>
+                        <p>社内にマーケティング部を作りたい。採用したメンバーをプロへ育て、事業のマーケを自社で握りたい方。</p>
+                    </div>
+                    <div class="home-card reveal" style="--delay: 0.2s;">
+                        <h3>社内マーケティング担当者</h3>
+                        <p>AIを本気で実務に組み込みたい。話題のAIを利益を生む「生産性向上ツール」として使い倒したい方。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- [D] Desire: 6か月ロードマップ -->
+        <section class="section">
+            <div class="wrap">
+                <div class="home-section-head">
+                    <h2>6か月で「自走できる状態」をつくる</h2>
+                    <p class="lead">段階的に積み上げることで、知識が実務に定着します。</p>
+                </div>
+                <div class="step-list">
+                    <div class="step-item reveal">
+                        <span class="step-num">MONTH 1–2</span>
+                        <h3>診断と基盤設計</h3>
+                        <p>現状診断・目標KPI設定・広告アカウント整理。Google検索広告・Demand Gen・P-MAXの初期設定まで。</p>
+                    </div>
+                    <div class="step-item reveal" style="--delay: 0.1s;">
+                        <span class="step-num">MONTH 3–4</span>
+                        <h3>実践運用とABテスト</h3>
+                        <p>Instagram・Threads広告の立ち上げ。AI自動化ツールの実装で週次工数30%削減を目標に、ROAS・CV数の週次レポート型を定着させます。</p>
+                    </div>
+                    <div class="step-item reveal" style="--delay: 0.2s;">
+                        <span class="step-num">MONTH 5–6</span>
+                        <h3>自走化・型化</h3>
+                        <p>社内レポート標準フォーマット作成・PDCAサイクルの完全内製化。担当者が変わっても困らない引き継ぎマニュアルを整備します。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- [D] Desire: AI/自動化具体例 -->
+        <section class="home-section alt">
+            <div class="wrap">
+                <div class="home-section-head">
+                    <div>
+                        <p class="eyebrow">AI & AUTOMATION</p>
+                        <h2>AIをどう実務に組み込むか</h2>
+                        <p class="lead">「ツールに振り回される」ではなく、「ツールを使いこなす人を育てる」アプローチです。</p>
+                    </div>
+                </div>
+                <div class="service-detail-grid">
+                    <article class="service-detail-card reveal">
+                        <h3>レポート自動集計</h3>
+                        <p>GAS + Looker Studioで週次2時間かかっていた作業を30分へ。担当者の時間をより本質的な改善へ向けます。</p>
+                    </article>
+                    <article class="service-detail-card reveal" style="--delay: 0.1s;">
+                        <h3>クリエイティブ量産</h3>
+                        <p>AIでA/Bテスト案を高速生成。改善サイクルが3倍速になり、勝ちパターンを早く見つけられます。</p>
+                    </article>
+                    <article class="service-detail-card reveal" style="--delay: 0.2s;">
+                        <h3>入札アラート自動化</h3>
+                        <p>入札戦略の自動アラート設定により、担当者不在でも異常を即検知。機会損失をゼロに近づけます。</p>
+                    </article>
+                    <article class="service-detail-card reveal" style="--delay: 0.3s;">
+                        <h3>需要予測×予算配分</h3>
+                        <p>Vertex AIによる需要予測補助で、予算配分の精度を向上。広告費の無駄を最小化します。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- [D] Desire: 4つのスキル -->
+        <section class="section">
             <div class="wrap">
                 <div class="home-section-head">
                     <div>
@@ -282,105 +424,51 @@
                 </div>
                 <div class="service-detail-grid">
                     <article class="service-detail-card reveal">
-                        <h3>1. リサーチ・市場分析</h3>
-                        <p>競合の広告クリエイティブ分析、3C/STP分析などのフレームワーク活用、さらにはYouTubeの投稿時間帯やハッシュタグ分析まで。データから「勝てる市場」を見つける調査スキルを身につけます。
-                        </p>
+                        <h3>1. 競合に先手を打てる分析力</h3>
+                        <p>競合広告クリエイティブ分析、3C/STP分析、YouTubeの投稿時間・ハッシュタグ分析まで。データから「勝てる市場」を見つける調査スキルを身につけます。</p>
                     </article>
                     <article class="service-detail-card reveal" style="--delay: 0.1s;">
-                        <h3>2. 広告運用の実践力</h3>
-                        <p>Google・Metaなどの主要媒体を自ら設定・運用。ブラックボックスにせず、成果の理由を説明できるレベルまで伴走します。</p>
+                        <h3>2. ブラックボックスをなくす運用力</h3>
+                        <p>Google・Metaなどの主要媒体を自ら設定・運用。成果の理由を説明できるレベルまで伴走し、代理店依存を脱却します。</p>
                     </article>
                     <article class="service-detail-card reveal" style="--delay: 0.2s;">
-                        <h3>3. AI活用による効率化</h3>
+                        <h3>3. 少人数で高速PDCAを回すAI実装</h3>
                         <p>プロンプト設計から業務自動化まで。AIを「使いこなす側」になり、リサーチやレポート作成の時間を大幅に削減します。</p>
                     </article>
                     <article class="service-detail-card reveal" style="--delay: 0.3s;">
-                        <h3>4. PDCAの仕組み化</h3>
-                        <p>単なる作業ではなく、学びを「型」として残す方法。担当者が変わっても成果が続く、社内標準のレポーティングを構築します。</p>
+                        <h3>4. 次の担当者でも迷わない再現性</h3>
+                        <p>学びを「型」として残す方法を徹底。担当者が変わっても成果が続く、社内標準のレポーティングを構築します。</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- Steps -->
-        <section class="section">
-            <div class="wrap">
-                <div class="home-section-head">
-                    <h2>育成プログラムの流れ</h2>
-                </div>
-                <div class="step-list">
-                    <div class="step-item reveal">
-                        <span class="step-num">STEP 01</span>
-                        <h3>現状診断・目標設計</h3>
-                        <p>事業課題の棚卸しと、目指すべき内製化のゴールを定義します。</p>
-                    </div>
-                    <div class="step-item reveal" style="--delay: 0.1s;">
-                        <span class="step-num">STEP 02</span>
-                        <h3>調査・分析の型作り</h3>
-                        <p>競合や市場の調査、GA4等を用いた分析のフローを構築。AIを使って膨大なデータから洞察を得る方法を学びます。</p>
-                    </div>
-                    <div class="step-item reveal" style="--delay: 0.2s;">
-                        <span class="step-num">STEP 03</span>
-                        <h3>広告運用とABテスト</h3>
-                        <p>実務で広告を運用しながら、リサーチ結果をクリエイティブに反映。改善の高速サイクルを回します。</p>
-                    </div>
-                    <div class="step-item reveal" style="--delay: 0.3s;">
-                        <span class="step-num">STEP 04</span>
-                        <h3>自走化・型化</h3>
-                        <p>ナレッジをドキュメント化し、社内だけでPDCAが回る状態を確立します。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 伴走する担当者・実績 -->
+        <!-- [D] Desire: 実績・プロフィール -->
         <section class="section alt">
             <div class="wrap">
                 <div class="home-section-head">
-                    <h2>誰が伴走プロになるのか</h2>
-                    <p class="lead">中小企業を中心に37アカウントの運用実績を持ち、AIによる自動化を駆使するマーケターが直接伴走します。</p>
+                    <h2>「自走できた」の声と数字</h2>
+                    <p class="lead">中小企業を中心に37アカウント、平均6.2か月で「社内で回る体制」が完成。AIによる自動化を駆使するマーケターが直接伴走します。</p>
                 </div>
 
-                <!-- プロフィール -->
-                <div class="profile-card reveal"
-                    style="background: var(--bg); padding: 40px; border-radius: 16px; border: 1px solid var(--line); display: flex; gap: 30px; align-items: center; max-width: 800px; margin: 0 auto 40px; flex-wrap: wrap;">
-                    <img src="./images/kato_ryo.jpg" alt="加藤椋"
-                        style="width: 140px; height: 140px; object-fit: cover; border-radius: 50%; border: 4px solid var(--accent-soft); flex-shrink: 0;">
-                    <div>
-                        <h3 style="margin-bottom: 5px; font-size: 22px;">加藤 椋 <span
-                                style="font-size: 14px; font-weight: normal; color: var(--muted); margin-left: 10px;">Ryo
-                                Kato</span></h3>
-                        <p style="font-size: 14px; color: var(--muted); margin-bottom: 15px;">代表 /
-                            マーケティング＆AI活用コンサルタント<br>ウェブ解析士 / Google Cloud認定資格保有</p>
-                        <ul style="font-size: 14px; padding-left: 20px; line-height: 1.6; margin-bottom: 0;">
-                            <li>塾教室長として4年間で培った「教える・わかるまで伝える」スキル</li>
-                            <li>広告代理店でROAS最高404%を達成する確かな運用力</li>
-                            <li>Python/GAS/Vertex AIによる実務の徹底的な効率化・ツール開発</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 実績 -->
+                <!-- 実績数値 -->
                 <div class="cards"
                     style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); text-align: center; gap: 20px; margin-bottom: 40px;">
                     <article class="reveal"
                         style="background: var(--surface); border: 1px solid var(--line); padding: 30px 20px; border-radius: 12px;">
-                        <p
-                            style="font-size: 32px; font-weight: 800; color: var(--accent); margin-bottom: 10px; line-height: 1;">
+                        <p style="font-size: 32px; font-weight: 800; color: var(--accent); margin-bottom: 10px; line-height: 1;">
                             404<span style="font-size: 18px;">%</span></p>
                         <h3 style="font-size: 14px; margin: 0;">最高 ROAS 達成</h3>
                     </article>
                     <article class="reveal"
                         style="--delay: 0.1s; background: var(--surface); border: 1px solid var(--line); padding: 30px 20px; border-radius: 12px;">
-                        <p
-                            style="font-size: 32px; font-weight: 800; color: var(--accent); margin-bottom: 10px; line-height: 1;">
+                        <p style="font-size: 32px; font-weight: 800; color: var(--accent); margin-bottom: 10px; line-height: 1;">
                             329<span style="font-size: 18px;">件</span></p>
                         <h3 style="font-size: 14px; margin: 0;">月平均 CV獲得</h3>
                     </article>
                     <article class="reveal"
                         style="--delay: 0.2s; background: var(--surface); border: 1px solid var(--line); padding: 30px 20px; border-radius: 12px;">
-                        <p
-                            style="font-size: 32px; font-weight: 800; color: var(--accent); margin-bottom: 10px; line-height: 1;">
+                        <p style="font-size: 32px; font-weight: 800; color: var(--accent); margin-bottom: 10px; line-height: 1;">
                             31<span style="font-size: 18px;">%</span></p>
                         <h3 style="font-size: 14px; margin: 0;">自動化で工数削減</h3>
                     </article>
@@ -390,25 +478,54 @@
                 <div class="cards">
                     <article class="home-card reveal">
                         <h3 style="font-size: 16px;">📊 ファッションブランド案件</h3>
-                        <p style="font-size: 13px; color: var(--muted); margin-top: 10px;">AIリサーチと週次PDCAにより、ROAS
-                            302%（前年同月比250%UP）を達成。</p>
+                        <p style="font-size: 13px; color: var(--muted); margin-top: 10px;">AIリサーチと週次PDCAにより、ROAS 302%（前年同月比250%UP）を達成。</p>
                     </article>
                     <article class="home-card reveal" style="--delay: 0.1s;">
                         <h3 style="font-size: 16px;">🛒 大手食品小売会社</h3>
-                        <p style="font-size: 13px; color: var(--muted); margin-top: 10px;">
-                            P-MAX最適化＋データ分析により、購買意欲の高いユーザーを狙い撃ちROAS 404%。</p>
+                        <p style="font-size: 13px; color: var(--muted); margin-top: 10px;">P-MAX最適化＋データ分析により、購買意欲の高いユーザーを狙い撃ちROAS 404%。</p>
                     </article>
                     <article class="home-card reveal" style="--delay: 0.2s;">
                         <h3 style="font-size: 16px;">🏥 専門クリニック</h3>
-                        <p style="font-size: 13px; color: var(--muted); margin-top: 10px;">心理学ベースの広告と Vertex AI
-                            で、月平均329件のCV（CPA 20%改善）。</p>
+                        <p style="font-size: 13px; color: var(--muted); margin-top: 10px;">心理学ベースの広告と Vertex AI で、月平均329件のCV（CPA 20%改善）。</p>
                     </article>
+                </div>
+
+                <!-- プロフィール -->
+                <div class="profile-card reveal"
+                    style="background: var(--bg); padding: 40px; border-radius: 16px; border: 1px solid var(--line); display: flex; gap: 30px; align-items: center; max-width: 800px; margin: 40px auto 0; flex-wrap: wrap;">
+                    <img src="./images/kato_ryo.jpg" alt="加藤椋"
+                        style="width: 140px; height: 140px; object-fit: cover; border-radius: 50%; border: 4px solid var(--accent-soft); flex-shrink: 0;">
+                    <div>
+                        <h3 style="margin-bottom: 5px; font-size: 22px;">加藤 椋 <span
+                                style="font-size: 14px; font-weight: normal; color: var(--muted); margin-left: 10px;">Ryo Kato</span></h3>
+                        <p style="font-size: 14px; color: var(--muted); margin-bottom: 15px;">代表 / マーケティング＆AI活用コンサルタント<br>ウェブ解析士 / Google Cloud認定資格保有</p>
+                        <ul style="font-size: 14px; padding-left: 20px; line-height: 1.6; margin-bottom: 0;">
+                            <li>塾教室長として4年間で培った「教える・わかるまで伝える」スキル</li>
+                            <li>広告代理店でROAS最高404%を達成する確かな運用力</li>
+                            <li>Python/GAS/Vertex AIによる実務の徹底的な効率化・ツール開発</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Pricing -->
+        <!-- [A] Action: 背中押しコピー -->
         <section class="section">
+            <div class="wrap">
+                <div class="problem-box reveal" style="max-width: 700px; margin-left: auto; margin-right: auto; text-align: center;">
+                    <h2 style="font-size: 24px; margin-bottom: 20px;">まずは「今の状況」を話してみてください</h2>
+                    <ul class="metric-list" style="text-align: left; display: inline-block; font-size: 15px; line-height: 2;">
+                        <li>プラン選択はヒアリング後でOK</li>
+                        <li>現在の広告アカウントがなくても相談できます</li>
+                        <li>無料相談で「育成プランの素案」をお渡しします</li>
+                    </ul>
+                    <p style="margin-top: 20px; font-size: 14px; color: var(--muted);">相談の所要時間：約30〜45分（オンライン）</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- [A] Action: 料金プラン -->
+        <section class="section" style="padding-top: 0;">
             <div class="wrap">
                 <div class="home-section-head">
                     <h2>料金プラン</h2>
@@ -427,8 +544,7 @@
                         <div class="price-desc">SNS広告を含む全方位のマーケティング支援</div>
                         <ul class="pricing-features">
                             <li><strong>マーケティング・スキルの内容含む</strong></li>
-                            <li>SNS広告設定・運用<br><span style="font-size:12px;color:#888;">(TikTok, Instagram, Threads,
-                                    Pinterest)</span></li>
+                            <li>SNS広告設定・運用<br><span style="font-size:12px;color:#888;">(TikTok, Instagram, Threads, Pinterest)</span></li>
                             <li>マーケティング戦略支援</li>
                             <li>月1回のミーティング</li>
                             <li>質問はメールにて自由<br><span style="font-size:12px;color:#888;">(3営業日以内に返答します)</span></li>
@@ -472,51 +588,35 @@
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Target -->
-            <section class="section alt">
-                <div class="wrap">
-                    <div class="home-section-head text-center" style="margin-left: auto; margin-right: auto;">
-                        <h2>このような方におすすめです</h2>
-                    </div>
-                    <div class="home-grid">
-                        <div class="home-card reveal">
-                            <h3>「代理店任せ」に限界を感じている</h3>
-                            <p>施策の中身が見えず、改善のスピードが遅いと感じている経営者・担当者様。</p>
-                        </div>
-                        <div class="home-card reveal" style="--delay: 0.1s;">
-                            <h3>社内にマーケティング部を作りたい</h3>
-                            <p>自社で採用したメンバーをプロへ育て上げ、事業の核心（マーケ）を握りたい方。</p>
-                        </div>
-                        <div class="home-card reveal" style="--delay: 0.2s;">
-                            <h3>AIを本気で実務に組み込みたい</h3>
-                            <p>話題のAIを単なる遊びではなく、利益を生む「生産性向上ツール」として使い倒したい方。</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Contact CTA -->
-            <section id="contact" class="home-section contact">
-                <div class="wrap">
-                    <div class="home-cta-box reveal" style="max-width: 800px; margin: 0 auto; padding: 40px 20px;">
-                        <h3 style="margin-bottom: 20px;">無料相談・無料相談</h3>
-                        <p style="margin-bottom: 30px;">現在の体制や課題をお聞かせください。貴社に最適な育成プランの素案を提示します。<br>必要事項をご入力のうえ送信してください。
-                        </p>
+        <!-- [A] Action: 最終CTA -->
+        <section id="contact" class="home-section contact">
+            <div class="wrap">
+                <div class="home-cta-box reveal" style="max-width: 800px; margin: 0 auto; padding: 40px 20px;">
+                    <button type="button" class="contact-accordion-trigger" aria-expanded="false"
+                        aria-controls="contactAccordionPanel">
+                        <span>まず話すだけ。今の課題をぶつけてみる</span>
+                        <span class="contact-accordion-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div id="contactAccordionPanel" class="contact-accordion-panel" hidden>
+                        <h3 style="margin-bottom: 20px;">無料相談フォーム</h3>
+                        <p style="margin-bottom: 30px;">現在の体制や課題をお聞かせください。貴社に最適な育成プランの素案を提示します。<br>必要事項をご入力のうえ送信してください。</p>
 
                         <!-- Google Forms iframe -->
                         <div style="background: white; border-radius: 12px; overflow: hidden;">
                             <iframe
-                                src="https://docs.google.com/forms/d/e/1FAIpQLSeNVTmV6UxrB435qH3oFs_wYkJWPt85l6hIBIwyT3Wu8o3IEw/viewform?embedded=true"
+                                src="about:blank"
+                                data-src="https://docs.google.com/forms/d/e/1FAIpQLSeNVTmV6UxrB435qH3oFs_wYkJWPt85l6hIBIwyT3Wu8o3IEw/viewform?embedded=true"
                                 width="100%" height="620" frameborder="0" marginheight="0" marginwidth="0"
-                                title="お問い合わせフォーム">
+                                loading="lazy" title="お問い合わせフォーム">
                                 読み込み中…
                             </iframe>
                         </div>
-
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
     </main>
 
     <!-- プライバシーポリシーモーダル -->
@@ -583,6 +683,59 @@
             }
         });
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        var contactAccordionButton = document.querySelector('.contact-accordion-trigger');
+        var contactAccordionPanel = document.getElementById('contactAccordionPanel');
+        var contactFormIframe = contactAccordionPanel
+            ? contactAccordionPanel.querySelector('iframe[data-src]')
+            : null;
+
+        function openContactAccordion() {
+            if (!contactAccordionButton || !contactAccordionPanel) {
+                return;
+            }
+            contactAccordionButton.setAttribute('aria-expanded', 'true');
+            contactAccordionPanel.hidden = false;
+            if (!window.__mtContactOpenTracked) {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    event: 'mt_contact_form_open',
+                    page_type: 'marketer_training'
+                });
+                window.__mtContactOpenTracked = true;
+            }
+            if (contactFormIframe && !contactFormIframe.dataset.loaded) {
+                contactFormIframe.src = contactFormIframe.dataset.src;
+                contactFormIframe.dataset.loaded = '1';
+            }
+        }
+
+        function closeContactAccordion() {
+            if (!contactAccordionButton || !contactAccordionPanel) {
+                return;
+            }
+            contactAccordionButton.setAttribute('aria-expanded', 'false');
+            contactAccordionPanel.hidden = true;
+        }
+
+        if (contactAccordionButton) {
+            contactAccordionButton.addEventListener('click', function () {
+                if (contactAccordionButton.getAttribute('aria-expanded') === 'true') {
+                    closeContactAccordion();
+                } else {
+                    openContactAccordion();
+                }
+            });
+        }
+
+        function syncContactByHash() {
+            if (window.location.hash === '#contact') {
+                openContactAccordion();
+            }
+        }
+
+        syncContactByHash();
+        window.addEventListener('hashchange', syncContactByHash);
 
         // Smooth reveal animations
         const revealItems = document.querySelectorAll('.reveal');
