@@ -205,6 +205,29 @@
             }
         }
 
+        /* problem-box内テキストを強制的にダーク色に */
+        .problem-box {
+            color: #1b241d;
+        }
+
+        .problem-box h2,
+        .problem-box h3 {
+            color: #1b241d;
+        }
+
+        .problem-box .metric-list li {
+            color: #263026;
+        }
+
+        .problem-box p {
+            color: #4c5b4f;
+        }
+
+        .problem-box p[style*="color: var(--accent)"],
+        .problem-box p[style*="color:var(--accent)"] {
+            color: #1d7a45 !important;
+        }
+
         /* モーダル用スタイル */
         .modal-overlay {
             display: none;
