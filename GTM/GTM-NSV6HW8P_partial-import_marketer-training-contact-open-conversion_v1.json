@@ -1,0 +1,139 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2026-04-19 00:16:49",
+  "containerVersion": {
+    "path": "accounts/6315860902/containers/231548752/versions/0",
+    "accountId": "6315860902",
+    "containerId": "231548752",
+    "containerVersionId": "0",
+    "container": {
+      "path": "accounts/6315860902/containers/231548752",
+      "accountId": "6315860902",
+      "containerId": "231548752",
+      "name": "sendaimarketing",
+      "publicId": "GTM-NSV6HW8P",
+      "usageContext": [
+        "WEB"
+      ],
+      "fingerprint": "1759564227835",
+      "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/6315860902/containers/231548752/workspaces?apiLink=container",
+      "features": {
+        "supportUserPermissions": true,
+        "supportEnvironments": true,
+        "supportWorkspaces": true,
+        "supportGtagConfigs": false,
+        "supportBuiltInVariables": true,
+        "supportClients": false,
+        "supportFolders": true,
+        "supportTags": true,
+        "supportTemplates": true,
+        "supportTriggers": true,
+        "supportVariables": true,
+        "supportVersions": true,
+        "supportZones": true,
+        "supportTransformations": false
+      },
+      "tagIds": [
+        "GTM-NSV6HW8P"
+      ]
+    },
+    "tag": [
+      {
+        "accountId": "6315860902",
+        "containerId": "231548752",
+        "tagId": "59",
+        "name": "GA4 Event - MarketerTraining Contact Form Open",
+        "type": "gaawe",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "sendEcommerceData",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "marketer_training_contact_form_open"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "G-XY0BGLETWF"
+          },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "conversion_name"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameterValue",
+                    "value": "contact_form_open"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "page_type"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameterValue",
+                    "value": "marketer_training"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "firingTriggerId": [
+          "59"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NOT_SET"
+        }
+      }
+    ],
+    "trigger": [
+      {
+        "accountId": "6315860902",
+        "containerId": "231548752",
+        "triggerId": "59",
+        "name": "CE - mt_contact_form_open",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "mt_contact_form_open"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
