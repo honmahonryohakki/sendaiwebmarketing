@@ -1,0 +1,46 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2026-04-24 18:30:00",
+  "containerVersion": {
+    "path": "accounts/6315860902/containers/231548752/versions/0",
+    "accountId": "6315860902",
+    "containerId": "231548752",
+    "containerVersionId": "0",
+    "container": {
+      "path": "accounts/6315860902/containers/231548752",
+      "accountId": "6315860902",
+      "containerId": "231548752",
+      "name": "sendaimarketing",
+      "publicId": "GTM-NSV6HW8P",
+      "usageContext": [
+        "WEB"
+      ]
+    },
+    "trigger": [
+      {
+        "accountId": "6315860902",
+        "containerId": "231548752",
+        "triggerId": "64",
+        "name": "PV - All Pages - Akita Listing Youtube Popup",
+        "type": "PAGEVIEW",
+        "filter": [
+          {
+            "type": "MATCH_REGEX",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{Page URL}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "(?i)(?:\\?|&)utm_campaign=[^&#]*akita"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
