@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --bg: #f8f4ec;
   --fg: #1f150f;
   --muted: #5e5245;
@@ -2689,7 +2689,7 @@ body.home,
 
 .home-metric .sub,
 .metric-list li {
-  color: rgba(68, 71, 75, 0.82);
+  color: rgba(255, 255, 255, 0.72);
   font-size: 14px;
 }
 
