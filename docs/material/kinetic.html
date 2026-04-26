@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>KINETIC — High Velocity Advertising</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green: #0AFF99;
+    --bg: #0e0e0e;
+    --surface: #131313;
+    --surface-high: #1a1919;
+    --surface-highest: #262626;
+    --outline: #484847;
+    --on-surface-variant: #adaaaa;
+    --secondary: #00e0ff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: #fff;
+    font-family: 'Manrope', sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom Cursor */
+  .cursor {
+    position: fixed;
+    width: 12px; height: 12px;
+    background: var(--green);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
+    mix-blend-mode: exclusion;
+  }
+  .cursor-ring {
+    position: fixed;
+    width: 40px; height: 40px;
+    border: 1px solid rgba(10,255,153,0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), width 0.4s ease, height 0.4s ease, opacity 0.3s ease;
+  }
+  body:hover .cursor-ring { opacity: 1; }
+  .cursor.hovered { width: 6px; height: 6px; }
+  .cursor-ring.hovered { width: 60px; height: 60px; border-color: var(--green); }
+
+  /* Material Icons */
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    font-family: 'Material Symbols Outlined', sans-serif;
+    font-style: normal;
+    user-select: none;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 80px;
+    z-index: 50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 48px;
+    background: rgba(14,14,14,0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(72,72,71,0.15);
+    animation: navSlide 0.8s cubic-bezier(0.16,1,0.3,1) both;
+  }
+  @keyframes navSlide {
+    from { transform: translateY(-100%); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+  }
+  .nav-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--green);
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.6);
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -4px;
+    width: 0; height: 1px;
+    background: var(--green);
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--green); }
+  .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+  .nav-right { display: flex; align-items: center; gap: 16px; }
+  .menu-btn {
+    background: none;
+    border: none;
+    color: var(--green);
+    cursor: none;
+    padding: 4px;
+    transition: transform 0.2s ease;
+  }
+  .menu-btn:hover { transform: scale(1.1); }
+
+  /* NOISE */
+  .noise {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-blob-1 {
+    position: absolute;
+    top: -10%; right: -10%;
+    width: 60%; height: 60%;
+    background: rgba(10,255,153,0.08);
+    border-radius: 50%;
+    filter: blur(120px);
+    animation: blobPulse 8s ease-in-out infinite alternate;
+  }
+  .hero-blob-2 {
+    position: absolute;
+    bottom: -20%; left: -10%;
+    width: 70%; height: 70%;
+    background: rgba(0,224,255,0.06);
+    border-radius: 50%;
+    filter: blur(150px);
+    animation: blobPulse 11s ease-in-out infinite alternate-reverse;
+  }
+  @keyframes blobPulse {
+    from { transform: scale(1) rotate(0deg); }
+    to   { transform: scale(1.15) rotate(15deg); }
+  }
+  .hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.35;
+    mix-blend-mode: overlay;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 48px;
+    display: grid;
+    grid-template-columns: 40px 1fr 80px;
+    gap: 32px;
+    align-items: center;
+  }
+  .hero-vertical-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.5em;
+    color: var(--on-surface-variant);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .hero-main { display: flex; flex-direction: column; gap: 48px; }
+  .hero-tag {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--green);
+    animation: fadeUp 1s 0.3s cubic-bezier(0.16,1,0.3,1) both;
+  }
+  .hero-headline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(5rem, 12vw, 11rem);
+    line-height: 0.85;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    font-style: italic;
+  }
+  .hero-h-white {
+    display: block;
+    color: #fff;
+    text-shadow: 0 0 40px rgba(10,255,153,0.2);
+    animation: fadeUp 1s 0.5s cubic-bezier(0.16,1,0.3,1) both;
+  }
+  .hero-h-outline {
+    display: block;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255,255,255,0.18);
+    animation: fadeUp 1s 0.65s cubic-bezier(0.16,1,0.3,1) both;
+  }
+  .hero-h-green {
+    display: block;
+    color: var(--green);
+    animation: fadeUp 1s 0.8s cubic-bezier(0.16,1,0.3,1) both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    animation: fadeUp 1s 1s cubic-bezier(0.16,1,0.3,1) both;
+  }
+  @media (min-width: 768px) {
+    .hero-bottom { flex-direction: row; justify-content: space-between; align-items: flex-end; }
+  }
+  .hero-desc {
+    max-width: 420px;
+    color: var(--on-surface-variant);
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+  .hero-cta-wrap { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+  .btn-primary {
+    position: relative;
+    padding: 20px 40px;
+    background: var(--green);
+    color: #0e0e0e;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: none;
+    cursor: none;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    transform: translateY(101%);
+    transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+  }
+  .btn-primary:hover::after { transform: translateY(0); }
+  .btn-primary:hover { transform: scale(1.02); }
+  .btn-primary:active { transform: scale(0.97); }
+  .btn-primary span { position: relative; z-index: 1; }
+  .hero-avail {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--on-surface-variant);
+  }
+  .hero-avail-line { width: 48px; height: 1px; background: var(--outline); }
+  .hero-stats { display: flex; flex-direction: column; align-items: center; gap: 48px; }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+  .stat-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--on-surface-variant);
+  }
+  .scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    opacity: 0.45;
+    animation: fadeUp 1s 1.4s cubic-bezier(0.16,1,0.3,1) both;
+  }
+  .scroll-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+  }
+  .scroll-line {
+    width: 1px;
+    height: 64px;
+    background: linear-gradient(to bottom, var(--green), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.1); }
+  }
+
+  /* MARQUEE */
+  .marquee-section {
+    overflow: hidden;
+    border-top: 1px solid rgba(72,72,71,0.3);
+    border-bottom: 1px solid rgba(72,72,71,0.3);
+    background: var(--surface);
+    padding: 20px 0;
+  }
+  .marquee-track {
+    display: flex;
+    gap: 64px;
+    animation: marquee 20s linear infinite;
+    white-space: nowrap;
+    width: max-content;
+  }
+  .marquee-section:hover .marquee-track { animation-play-state: paused; }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .marquee-item {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--on-surface-variant);
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  .marquee-dot { color: var(--green); font-size: 1.2rem; }
+
+  /* BENTO */
+  .bento-section {
+    padding: 128px 48px;
+    background: var(--surface);
+  }
+  .bento-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 380px);
+    gap: 16px;
+  }
+  .bento-card {
+    background: var(--surface-high);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: background 0.4s ease, transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    cursor: none;
+    overflow: hidden;
+    position: relative;
+  }
+  .bento-card:hover { background: var(--surface-highest); }
+  .bento-card-1 { grid-column: 1 / 3; grid-row: 1; }
+  .bento-card-2 { grid-column: 3; grid-row: 1; position: relative; overflow: hidden; padding: 0; }
+  .bento-card-3 { grid-column: 4; grid-row: 1 / 3; background: var(--green); color: #0e0e0e; }
+  .bento-card-4 { grid-column: 1 / 3; grid-row: 2; background: var(--bg); border: 1px solid rgba(72,72,71,0.2); justify-content: center; }
+  .bento-card-5 { grid-column: 3; grid-row: 2; }
+
+  .bento-card-2 img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(1);
+    transition: filter 0.7s ease, transform 0.7s cubic-bezier(0.16,1,0.3,1);
+  }
+  .bento-card-2:hover img { filter: grayscale(0); transform: scale(1.08); }
+  .bento-card-2 .img-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10,255,153,0.2);
+    mix-blend-mode: multiply;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .bento-card-2:hover .img-overlay { opacity: 1; }
+
+  .bento-card-3 .bg-icon {
+    position: absolute;
+    top: 32px; right: 24px;
+    opacity: 0.08;
+    font-size: 10rem;
+    transform: rotate(45deg) scale(1.5);
+  }
+  .bento-card-3:hover { transform: translateY(-4px); }
+
+  .bento-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--on-surface-variant);
+  }
+  .bento-card-3 .bento-label { color: rgba(14,14,14,0.6); }
+
+  .bento-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1.1;
+  }
+  .bento-desc { font-size: 0.85rem; color: var(--on-surface-variant); max-width: 240px; }
+
+  .bento-card-3 .bento-title { font-size: 3rem; font-weight: 900; line-height: 1; }
+  .bento-card-3 .bento-desc { color: rgba(14,14,14,0.75); font-weight: 600; font-size: 1rem; }
+
+  .big-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(3rem, 7vw, 7rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.04);
+    white-space: nowrap;
+    user-select: none;
+    letter-spacing: -0.02em;
+  }
+  .bento-card-5:hover { transform: translateY(-12px); }
+
+  /* AGENCY SECTION */
+  .agency-section {
+    padding: 128px 48px;
+    background: var(--bg);
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .agency-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .agency-inner { flex-direction: row; }
+    .agency-media, .agency-copy { width: 50%; }
+  }
+  .agency-media {
+    position: relative;
+    aspect-ratio: 1;
+    background: var(--surface-highest);
+    overflow: hidden;
+  }
+  .agency-media img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    transition: transform 1s cubic-bezier(0.16,1,0.3,1), opacity 0.5s ease;
+  }
+  .agency-media:hover img { transform: scale(1.05); opacity: 0.75; }
+  .play-btn {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .play-circle {
+    width: 96px; height: 96px;
+    border-radius: 50%;
+    border: 1px solid var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--green);
+    cursor: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  .play-circle:hover { background: var(--green); color: #0e0e0e; transform: scale(1.05); }
+  .play-circle .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; font-size: 2.5rem; }
+
+  .agency-copy { display: flex; flex-direction: column; gap: 40px; }
+  .agency-tag {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--green);
+  }
+  .agency-headline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .agency-body { color: var(--on-surface-variant); font-size: 1.1rem; line-height: 1.7; max-width: 480px; }
+  .agency-stats { display: flex; gap: 48px; }
+  .agency-stat-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .agency-stat-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--on-surface-variant);
+    margin-top: 4px;
+  }
+
+  /* WORKS TICKER */
+  .works-section {
+    background: var(--surface);
+    padding: 80px 48px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .works-header {
+    max-width: 1400px;
+    margin: 0 auto 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .works-h {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+  .works-link {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.3s ease;
+  }
+  .works-link:hover { gap: 16px; }
+  .works-list { max-width: 1400px; margin: 0 auto; }
+  .work-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(72,72,71,0.2);
+    cursor: none;
+    transition: padding-left 0.4s cubic-bezier(0.16,1,0.3,1);
+    group: true;
+  }
+  .work-item:hover { padding-left: 20px; }
+  .work-item:hover .work-num { color: var(--green); }
+  .work-left { display: flex; align-items: baseline; gap: 24px; }
+  .work-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.65rem;
+    color: var(--on-surface-variant);
+    letter-spacing: 0.1em;
+    transition: color 0.3s ease;
+    min-width: 32px;
+  }
+  .work-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+  .work-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .work-tag {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--on-surface-variant);
+    border: 1px solid rgba(72,72,71,0.4);
+    padding: 4px 12px;
+  }
+  .work-arrow { color: var(--on-surface-variant); transition: color 0.3s ease, transform 0.3s ease; }
+  .work-item:hover .work-arrow { color: var(--green); transform: rotate(45deg); }
+
+  /* FOOTER */
+  footer {
+    padding: 80px 48px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    background: var(--bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 48px;
+  }
+  .footer-left { display: flex; flex-direction: column; gap: 32px; }
+  .footer-logo {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .footer-tagline {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--on-surface-variant);
+    line-height: 2;
+  }
+  .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 48px; }
+  .footer-links { display: flex; gap: 48px; flex-wrap: wrap; justify-content: flex-end; }
+  .footer-links a {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .footer-links a:hover { color: var(--green); }
+  .footer-copy {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* OVERLAY NAV */
+  .overlay-nav {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 48px 96px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+  .overlay-nav.open { opacity: 1; pointer-events: all; }
+  .overlay-close {
+    position: absolute;
+    top: 32px; right: 48px;
+    background: none;
+    border: none;
+    color: var(--green);
+    cursor: none;
+    transform: scale(1.5);
+    transition: transform 0.2s ease;
+  }
+  .overlay-close:hover { transform: scale(1.8) rotate(90deg); }
+  .overlay-logo { margin-bottom: 48px; }
+  .overlay-logo-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--green);
+  }
+  .overlay-logo-sub {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-top: 4px;
+  }
+  .overlay-links { list-style: none; display: flex; flex-direction: column; gap: 24px; }
+  .overlay-links a {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(255,255,255,0.3);
+    display: inline-block;
+    transition: color 0.4s ease, transform 0.4s cubic-bezier(0.16,1,0.3,1), letter-spacing 0.4s ease;
+  }
+  .overlay-links a:hover {
+    color: #fff;
+    transform: translateX(16px);
+    letter-spacing: 0.02em;
+  }
+  .overlay-links a.current {
+    color: var(--green);
+    border-bottom: 4px solid var(--green);
+  }
+  .overlay-cta {
+    margin-top: 48px;
+    padding: 16px 32px;
+    border: 2px solid var(--green);
+    background: none;
+    color: var(--green);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: none;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  .overlay-cta:hover { background: var(--green); color: #0e0e0e; }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hero-content { grid-template-columns: 1fr; padding: 0 24px; }
+    .hero-vertical-label, .hero-stats { display: none; }
+    .bento-section { padding: 64px 24px; }
+    .bento-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      height: auto;
+    }
+    .bento-card-1, .bento-card-2, .bento-card-3, .bento-card-4, .bento-card-5 {
+      grid-column: auto; grid-row: auto;
+    }
+    .bento-card-2 { min-height: 280px; }
+    .agency-section, .works-section { padding: 64px 24px; }
+    footer { padding: 64px 24px; }
+    .overlay-nav { padding: 48px 32px; }
+    .overlay-links a { font-size: clamp(2rem, 12vw, 5rem); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Noise -->
+<div class="noise"></div>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-logo">KINETIC</div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">Work</a></li>
+      <li><a href="#">Agency</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+      <span class="material-symbols-outlined" style="font-size:1.8rem;">menu</span>
+    </button>
+  </div>
+</nav>
+
+<!-- Overlay Nav -->
+<div class="overlay-nav" id="overlayNav">
+  <button class="overlay-close" id="closeNav" aria-label="Close">
+    <span class="material-symbols-outlined">close</span>
+  </button>
+  <div class="overlay-logo">
+    <div class="overlay-logo-text">KINETIC</div>
+    <div class="overlay-logo-sub">Brutal Precision</div>
+  </div>
+  <ul class="overlay-links">
+    <li><a href="#" class="current">Work</a></li>
+    <li><a href="#">Agency</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Insights</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <button class="overlay-cta">Start a Project</button>
+</div>
+
+<main>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-blob-1"></div>
+      <div class="hero-blob-2"></div>
+      <img class="hero-img"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDktPzJikutYFAxuJ_OXfbPQ6NmwIsuJ8727upka0Odn2YhRnACWa3CHrlSLn1zWt4EUeT4OPPJ2fXtLNAujh_DDBpOqhBiTYaJFazSxkvw69Gp1sWnM_WIhrYt7EefzL0L8p6ysQ2hVzqo7pLIsGfXTxMnp0jLhjNqVrjVmlKhEdp1CxFKffwh8MJC-yhH9stEAynyOucQVYJ-oRqBR2DxPS2eWKS3rXlyY5oS5A9YMh58LZQDCC-uotlzwkvgHS2R33Ty8qxwwC0"
+        alt="" />
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-vertical-label">EST. MMXXIV — VOID BORN</div>
+
+      <div class="hero-main">
+        <span class="hero-tag">High Velocity Advertising</span>
+
+        <h1 class="hero-headline">
+          <span class="hero-h-white">BEYOND</span>
+          <span class="hero-h-outline">THE</span>
+          <span class="hero-h-green">VOID</span>
+        </h1>
+
+        <div class="hero-bottom">
+          <p class="hero-desc">
+            We dismantle traditional marketing structures to create high-octane digital experiences that resonate in the noise.
+          </p>
+          <div class="hero-cta-wrap">
+            <button class="btn-primary"><span>Start a project</span></button>
+            <div class="hero-avail">
+              <div class="hero-avail-line"></div>
+              Available for 2024 Q4
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">48+</div>
+          <div class="stat-label">Awards</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">12</div>
+          <div class="stat-label">Global Hubs</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span class="scroll-label">Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <!-- repeated twice for seamless loop -->
+      <div class="marquee-item">Branding<span class="marquee-dot">✦</span></div>
+      <div class="marquee-item">Performance Marketing<span class="marquee-dot">✦</span></div>
+      <div class="marquee-item">Motion Design<span class="marquee-dot">✦</span></div>
+      <div class="marquee-item">Web Experience<span class="marquee-dot">✦</span></div>
+      <div class="marquee-item">Strategy<span class="marquee-dot">✦</span></div>
+      <div class="marquee-item">Creative Direction<span class="marquee-dot">✦</span></div>
+      <div class="marquee-item">Branding<span class="marquee-dot">✦</span></div>
+      <div class="marquee-item">Performance Marketing<span class="marquee-dot">✦</span></div>
+      <div class="marquee-item">Motion Design<span class="marquee-dot">✦</span></div>
+      <div class="marquee-item">Web Experience<span class="marquee-dot">✦</span></div>
+      <div class="marquee-item">Strategy<span class="marquee-dot">✦</span></div>
+      <div class="marquee-item">Creative Direction<span class="marquee-dot">✦</span></div>
+    </div>
+  </div>
+
+  <!-- Bento Grid -->
+  <section class="bento-section">
+    <div class="bento-grid">
+
+      <!-- Card 1 -->
+      <div class="bento-card bento-card-1 reveal">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <span class="material-symbols-outlined" style="color:var(--green); font-size:2.5rem;">bolt</span>
+          <span class="bento-label">Services / 01</span>
+        </div>
+        <div>
+          <h3 class="bento-title" style="margin-bottom:16px;">Brutal Branding</h3>
+          <p class="bento-desc">Forging identities that demand attention in the digital oversaturation.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 (image) -->
+      <div class="bento-card bento-card-2 reveal reveal-delay-1">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVTaXDIyVzu91Ir4D9X3ZMmhXiRHAfes3psU82L870SK6W9LGXyFopOVV5Wwk3P0a-jJ-Q-hQjbmnArslYAok2ubeZsd7HW2wO9VzS_zeMsNHhR5fbaUlDdMB7r0LqdxovcnVUAUmkthYyNuzSLYjBPBUScvh6T1y-4IT5aENEw4E5T8NC-kFYekwmzwJNpDg03AgQ01YvN25IbGlYZqLhftoonhvAk3h2IwnaG4vstkcsSRPpHhBSyZAabxVGGAzDNUuGhhldOLw" alt=""/>
+        <div class="img-overlay"></div>
+      </div>
+
+      <!-- Card 3 (green accent) -->
+      <div class="bento-card bento-card-3 reveal reveal-delay-2">
+        <div class="bg-icon material-symbols-outlined">rocket_launch</div>
+        <div style="position:relative;z-index:1; display:flex; flex-direction:column; gap:24px;">
+          <span class="bento-label">Services / 02</span>
+          <h3 class="bento-title">Scale<br/>Faster</h3>
+          <p class="bento-desc">Performance marketing that ignores the rules.</p>
+          <span class="material-symbols-outlined" style="font-size:2rem; font-weight:700;">arrow_outward</span>
+        </div>
+      </div>
+
+      <!-- Card 4 (big ghost text) -->
+      <div class="bento-card bento-card-4 reveal">
+        <span class="big-text">CREATIVE KINETICS</span>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="bento-card bento-card-5 reveal reveal-delay-1">
+        <span class="material-symbols-outlined" style="color:var(--secondary); font-size:2.5rem;">visibility</span>
+        <h3 class="bento-title">Immersive UX</h3>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Agency Section -->
+  <section class="agency-section">
+    <div class="agency-inner">
+      <div class="agency-media reveal">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWrT5ptTFbIWOBe8fxZOvvCYBl0eQtuTGTVpguNcP5dZucu-r6PmdqIRv6BLD32wmOptdBodXPnVSW1drd7DL-ceSteaGvBy4U8NdtapoPEmQHYC8MMmvNAC0tHVgbpLfbguFnPIIMcE6CdWaDl1w8ZfWRbN6r-h0cRMfi_6dV_4X05-fsr_YKvcjlmTU613Mh-RiUSTTBTj91qkk0USy7sxclj-WZvMIzBxjbzR39hZSoPxNEw_5PSRh2nvJZJPrT2lS8zXNFi4" alt=""/>
+        <div class="play-btn">
+          <div class="play-circle">
+            <span class="material-symbols-outlined">play_arrow</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="agency-copy reveal reveal-delay-2">
+        <span class="agency-tag">The Manifesto</span>
+        <h2 class="agency-headline">We move<br/>at the speed<br/>of culture.</h2>
+        <p class="agency-body">
+          Static brands die. In the void of digital noise, only the kinetic survive. We don't just build websites or launch campaigns; we inject velocity into your business model.
+        </p>
+        <div class="agency-stats">
+          <div>
+            <div class="agency-stat-num">200%</div>
+            <div class="agency-stat-label">Avg. ROAS Increase</div>
+          </div>
+          <div>
+            <div class="agency-stat-num">14ms</div>
+            <div class="agency-stat-label">Response Time</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Works Section -->
+  <section class="works-section">
+    <div class="works-header reveal">
+      <h2 class="works-h">Selected Work</h2>
+      <a href="#" class="works-link">
+        View all <span class="material-symbols-outlined" style="font-size:1rem;">arrow_outward</span>
+      </a>
+    </div>
+
+    <div class="works-list">
+      <div class="work-item reveal">
+        <div class="work-left">
+          <span class="work-num">01</span>
+          <span class="work-name">Aether Collective</span>
+        </div>
+        <div class="work-tags">
+          <span class="work-tag">Branding</span>
+          <span class="work-tag">Web</span>
+        </div>
+        <span class="work-arrow material-symbols-outlined">arrow_outward</span>
+      </div>
+      <div class="work-item reveal reveal-delay-1">
+        <div class="work-left">
+          <span class="work-num">02</span>
+          <span class="work-name">Void Protocol</span>
+        </div>
+        <div class="work-tags">
+          <span class="work-tag">Campaign</span>
+          <span class="work-tag">Motion</span>
+        </div>
+        <span class="work-arrow material-symbols-outlined">arrow_outward</span>
+      </div>
+      <div class="work-item reveal reveal-delay-2">
+        <div class="work-left">
+          <span class="work-num">03</span>
+          <span class="work-name">Neon Assembly</span>
+        </div>
+        <div class="work-tags">
+          <span class="work-tag">Performance</span>
+          <span class="work-tag">Strategy</span>
+        </div>
+        <span class="work-arrow material-symbols-outlined">arrow_outward</span>
+      </div>
+      <div class="work-item reveal reveal-delay-3">
+        <div class="work-left">
+          <span class="work-num">04</span>
+          <span class="work-name">Kinetic Labs</span>
+        </div>
+        <div class="work-tags">
+          <span class="work-tag">UX</span>
+          <span class="work-tag">Branding</span>
+          <span class="work-tag">Web</span>
+        </div>
+        <span class="work-arrow material-symbols-outlined">arrow_outward</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-left">
+    <div class="footer-logo">KINETIC</div>
+    <p class="footer-tagline">
+      CREATING FRICTIONLESS IMPACT<br/>
+      IN A WORLD OF NOISE.<br/>
+      ESTABLISHED IN THE VOID.
+    </p>
+  </div>
+  <div class="footer-right">
+    <div class="footer-links">
+      <a href="#">Instagram</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Behance</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy</a>
+    </div>
+    <div class="footer-copy">©2024 KINETIC ADVERTISING. BORN IN THE VOID.</div>
+  </div>
+</footer>
+
+<script>
+  // Cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx + 'px';
+    cursor.style.top = my + 'px';
+  });
+
+  function animRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+    requestAnimationFrame(animRing);
+  }
+  animRing();
+
+  document.querySelectorAll('a, button, .bento-card, .work-item, .play-circle').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.classList.add('hovered');
+      ring.classList.add('hovered');
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.classList.remove('hovered');
+      ring.classList.remove('hovered');
+    });
+  });
+
+  // Menu
+  const menuBtn = document.getElementById('menuBtn');
+  const closeBtn = document.getElementById('closeNav');
+  const overlay = document.getElementById('overlayNav');
+
+  menuBtn.addEventListener('click', () => overlay.classList.add('open'));
+  closeBtn.addEventListener('click', () => overlay.classList.remove('open'));
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) overlay.classList.remove('open');
+  });
+
+  // Scroll Reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav active on scroll
+  const sections = ['hero'];
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    const nav = document.querySelector('nav');
+    if (y > 40) {
+      nav.style.borderBottomColor = 'rgba(72,72,71,0.25)';
+    } else {
+      nav.style.borderBottomColor = 'rgba(72,72,71,0.15)';
+    }
+  });
+</script>
+</body>
+</html>
