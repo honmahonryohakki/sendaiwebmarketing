@@ -1,6 +1,14 @@
-*.md
 GTM/
 scripts/
 
 # LP improvement documents (organized)
 docs/plan/*.md
+
+# Claude AI worktrees (causes GitHub Pages submodule build errors)
+.claude/
+
+# Temporary files
+temp_styles.css
+*.png
+*.txt
+*.json
