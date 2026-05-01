@@ -56,6 +56,26 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://honmahonryohakki.github.io/sendaiwebmarketing/recruit/recruit1.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://honmahonryohakki.github.io/sendaiwebmarketing/tohoku-study.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://honmahonryohakki.github.io/sendaiwebmarketing/presentation-slides.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://honmahonryohakki.github.io/sendaiwebmarketing/marketer-training/about.html/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://honmahonryohakki.github.io/sendaiwebmarketing/privacy-policy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
