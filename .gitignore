@@ -11,4 +11,6 @@ docs/plan/*.md
 temp_styles.css
 *.png
 *.txt
+!docs/robots.txt
 *.json
+!docs/sitemap.xml
