@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://honmahonryohakki.github.io/sitemap.xml
+Sitemap: https://honmahonryohakki.github.io/sendaiwebmarketing/sitemap.xml
