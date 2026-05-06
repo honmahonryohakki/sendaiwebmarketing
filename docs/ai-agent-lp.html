@@ -1,0 +1,1016 @@
+﻿<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI担当LP | マーケティング運用支援</title>
+  <meta name="description" content="中小企業BtoBのマーケティング担当向けAI担当LP。無料AIマーケ診断とLINE無料相談を提供。" />
+  <style>
+    :root {
+      --c-primary: #1F5FAE;
+      --c-deep: #0F2747;
+      --c-accent: #F49A3F;
+      --c-soft: #EAF3FF;
+      --c-white: #FFFFFF;
+      --c-text: #5B6675;
+      --line: rgba(15, 39, 71, 0.14);
+      --radius: 18px;
+      --scroll: 0;
+      --hero-shift: 0px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "Yu Gothic UI", "Meiryo", sans-serif;
+      color: var(--c-text);
+      background: var(--c-white);
+      line-height: 1.7;
+      overflow-x: clip;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(180deg, #ffffff 0%, #f7fbff 42%, #eef5ff 100%),
+        repeating-linear-gradient(90deg, rgba(15, 39, 71, 0.03) 0 1px, transparent 1px 72px);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.35;
+      background: radial-gradient(circle at 84% 18%, rgba(244, 154, 63, 0.2), transparent 44%), radial-gradient(circle at 8% 78%, rgba(31, 95, 174, 0.2), transparent 42%);
+      transform: translateY(calc(var(--scroll) * -56px));
+      transition: transform 0.1s linear;
+    }
+
+    .scroll-meter {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 100%;
+      z-index: 50;
+      pointer-events: none;
+      background: linear-gradient(90deg, var(--c-primary), var(--c-accent));
+      transform: scaleX(var(--scroll));
+      transform-origin: left;
+      box-shadow: 0 2px 8px rgba(15, 39, 71, 0.32);
+    }
+
+    .container {
+      width: min(1140px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 92px 0;
+      position: relative;
+    }
+
+    .section + .section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: min(1140px, calc(100% - 40px));
+      height: 1px;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, transparent, rgba(15, 39, 71, 0.16), transparent);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(234, 243, 255, 0.7);
+      border: 1px solid rgba(31, 95, 174, 0.24);
+      color: var(--c-primary);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      color: var(--c-deep);
+      line-height: 1.3;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .section-title {
+      margin-top: 14px;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: 0.01em;
+    }
+
+    .section-copy {
+      margin-top: 12px;
+      margin-bottom: 26px;
+      max-width: 60ch;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      align-items: center;
+      padding-top: 48px;
+    }
+
+    .hero-card {
+      position: relative;
+      padding: clamp(24px, 4vw, 40px);
+      border: 1px solid var(--line);
+      border-radius: calc(var(--radius) + 6px);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(234, 243, 255, 0.9) 60%, rgba(255, 255, 255, 0.95) 100%);
+      box-shadow: 0 24px 56px rgba(15, 39, 71, 0.12);
+      overflow: clip;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 52%;
+      height: 4px;
+      left: -8%;
+      top: 0;
+      background: linear-gradient(90deg, transparent, var(--c-accent), transparent);
+      animation: topScan 5.4s linear infinite;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      aspect-ratio: 1;
+      right: -130px;
+      top: -120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(31, 95, 174, 0.18) 0%, rgba(31, 95, 174, 0) 70%);
+      pointer-events: none;
+    }
+
+    .hero-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      width: 168px;
+      height: auto;
+      display: block;
+    }
+
+    .hero-layout {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: clamp(34px, 6vw, 64px);
+      letter-spacing: 0.01em;
+      margin-top: 14px;
+      text-wrap: balance;
+    }
+
+    .hero-sub {
+      margin-top: 18px;
+      font-size: clamp(16px, 2vw, 20px);
+      max-width: 36ch;
+    }
+
+    .hero-points {
+      list-style: none;
+      margin: 20px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+      max-width: 34ch;
+    }
+
+    .hero-points li {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(15, 39, 71, 0.14);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 700;
+      color: var(--c-deep);
+      transform: translateX(-8px);
+      opacity: 0;
+    }
+
+    .in-view .hero-points li {
+      animation: pointSlide 0.6s ease forwards;
+    }
+
+    .in-view .hero-points li:nth-child(2) { animation-delay: 0.12s; }
+    .in-view .hero-points li:nth-child(3) { animation-delay: 0.24s; }
+
+    .hero-points li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      margin-right: 8px;
+      border-radius: 50%;
+      background: var(--c-accent);
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .cta-group {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      min-height: 54px;
+      padding-inline: 24px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+    }
+
+    .btn-primary {
+      color: var(--c-white);
+      background: linear-gradient(135deg, var(--c-primary), var(--c-deep));
+      box-shadow: 0 12px 28px rgba(15, 39, 71, 0.28);
+      animation: ctaPulse 2.8s ease-in-out infinite;
+    }
+
+    .btn-secondary {
+      color: var(--c-deep);
+      background: rgba(255, 255, 255, 0.88);
+      border-color: rgba(15, 39, 71, 0.2);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 26px rgba(15, 39, 71, 0.24);
+    }
+
+    .hero-media {
+      position: relative;
+      padding: 10px;
+      border-radius: 18px;
+      border: 1px solid rgba(15, 39, 71, 0.15);
+      background: #fff;
+      box-shadow: 0 16px 38px rgba(15, 39, 71, 0.15);
+      transform: translateY(var(--hero-shift));
+    }
+
+    .hero-media img {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .hero-media figcaption {
+      margin-top: 10px;
+      font-size: 13px;
+    }
+
+    .float-tag {
+      position: absolute;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(15, 39, 71, 0.15);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--c-deep);
+      box-shadow: 0 8px 18px rgba(15, 39, 71, 0.14);
+      animation: floatTag 3.8s ease-in-out infinite;
+      white-space: nowrap;
+    }
+
+    .float-tag.tag-a { top: -14px; left: 12px; }
+    .float-tag.tag-b { bottom: 58px; right: -8px; animation-delay: 1.2s; }
+
+    .ticker {
+      margin-top: 22px;
+      overflow: hidden;
+      border-top: 1px solid rgba(15, 39, 71, 0.14);
+      border-bottom: 1px solid rgba(15, 39, 71, 0.14);
+      background: rgba(255, 255, 255, 0.62);
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: tickerMove 26s linear infinite;
+      padding-block: 10px;
+      gap: 28px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--c-deep);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .grid-3,
+    .grid-domain,
+    .grid-flow,
+    .grid-benefits,
+    .faq-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid-3,
+    .grid-domain,
+    .grid-benefits {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      position: relative;
+      border-radius: var(--radius);
+      border: 1px solid rgba(15, 39, 71, 0.15);
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      box-shadow: 0 10px 26px rgba(15, 39, 71, 0.1);
+      overflow: clip;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--c-primary), transparent 70%);
+      opacity: 0.55;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 39, 71, 0.14);
+      background: var(--c-soft);
+      display: grid;
+      place-items: center;
+      margin-bottom: 12px;
+    }
+
+    .icon-wrap img {
+      width: 27px;
+      height: 27px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .panel {
+      border-radius: var(--radius);
+      border: 1px solid rgba(15, 39, 71, 0.16);
+      background: linear-gradient(160deg, #ffffff, #f2f7ff);
+      padding: 22px;
+      box-shadow: 0 14px 28px rgba(15, 39, 71, 0.12);
+      position: sticky;
+      top: 18px;
+    }
+
+    .flow-visual {
+      margin: 0 0 14px;
+      border: 1px solid rgba(15, 39, 71, 0.16);
+      border-radius: 14px;
+      padding: 8px;
+      background: var(--c-white);
+      box-shadow: 0 8px 20px rgba(15, 39, 71, 0.1);
+    }
+
+    .flow-visual img {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .grid-flow {
+      grid-template-columns: 1fr;
+      counter-reset: step;
+    }
+
+    .flow-step {
+      position: relative;
+      padding-left: 54px;
+      counter-increment: step;
+    }
+
+    .flow-step::before {
+      content: counter(step, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--c-primary), var(--c-deep));
+    }
+
+    .benefit-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-6px) rotate(-0.6deg);
+      box-shadow: 0 18px 32px rgba(15, 39, 71, 0.16);
+    }
+
+    .faq-item {
+      border: 1px solid rgba(15, 39, 71, 0.16);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.92);
+      overflow: clip;
+    }
+
+    .faq-q {
+      width: 100%;
+      border: none;
+      text-align: left;
+      background: transparent;
+      cursor: pointer;
+      padding: 18px 52px 18px 18px;
+      color: var(--c-deep);
+      font-size: 16px;
+      font-weight: 800;
+      position: relative;
+    }
+
+    .faq-q::after {
+      content: "+";
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      color: var(--c-primary);
+      transition: transform 0.24s ease;
+    }
+
+    .faq-item.open .faq-q::after {
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      padding-inline: 18px;
+      transition: max-height 0.34s ease, padding-bottom 0.34s ease, opacity 0.34s ease;
+      opacity: 0;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 220px;
+      padding-bottom: 16px;
+      opacity: 1;
+    }
+
+    .cta-final {
+      position: relative;
+      padding: clamp(24px, 4vw, 44px);
+      border-radius: 24px;
+      overflow: clip;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: linear-gradient(142deg, #0f2747 0%, #1f5fae 62%, #1f5fae 100%);
+      box-shadow: 0 26px 48px rgba(15, 39, 71, 0.34);
+      transform-style: preserve-3d;
+      transition: transform 0.2s ease;
+    }
+
+    .cta-final::before {
+      content: "";
+      position: absolute;
+      width: 300px;
+      aspect-ratio: 1;
+      right: -120px;
+      top: -120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(244, 154, 63, 0.5), transparent 70%);
+      animation: halo 4.6s ease-in-out infinite;
+    }
+
+    .cta-final::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.12) 48%, transparent 75%);
+      transform: translateX(-120%);
+      animation: shine 4.6s ease-in-out infinite;
+    }
+
+    .cta-final h2,
+    .cta-final p {
+      color: #fff;
+      position: relative;
+      z-index: 1;
+    }
+
+    .note {
+      margin-top: 12px;
+      font-size: 13px;
+      opacity: 0.92;
+      position: relative;
+      z-index: 1;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.74s cubic-bezier(.2, .74, .2, 1), transform 0.74s cubic-bezier(.2, .74, .2, 1);
+    }
+
+    .reveal[data-anim="left"] {
+      transform: translateX(-28px);
+    }
+
+    .reveal[data-anim="right"] {
+      transform: translateX(28px);
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateX(0) translateY(0);
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      text-align: center;
+      color: rgba(91, 102, 117, 0.9);
+      font-size: 12px;
+    }
+
+    .footer-links {
+      margin-top: 8px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .footer-links a {
+      color: inherit;
+      text-underline-offset: 2px;
+    }
+
+    @keyframes topScan {
+      0% { transform: translateX(0); opacity: 0; }
+      10% { opacity: 0.9; }
+      50% { opacity: 0.9; }
+      100% { transform: translateX(210%); opacity: 0; }
+    }
+
+    @keyframes floatTag {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes tickerMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @keyframes pointSlide {
+      from { opacity: 0; transform: translateX(-8px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes ctaPulse {
+      0%, 100% { box-shadow: 0 12px 28px rgba(15, 39, 71, 0.28); }
+      50% { box-shadow: 0 16px 32px rgba(244, 154, 63, 0.42); }
+    }
+
+    @keyframes halo {
+      0%, 100% { transform: scale(1); opacity: 0.55; }
+      50% { transform: scale(1.12); opacity: 0.28; }
+    }
+
+    @keyframes shine {
+      0%, 70% { transform: translateX(-120%); }
+      100% { transform: translateX(120%); }
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-layout,
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-3,
+      .grid-domain,
+      .grid-benefits {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .panel {
+        position: static;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(1140px, calc(100% - 28px));
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+
+      .hero-card {
+        padding: 20px;
+      }
+
+      .grid-3,
+      .grid-domain,
+      .grid-benefits {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-title {
+        font-size: clamp(30px, 11vw, 44px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .scroll-meter,
+      body::after {
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-meter" aria-hidden="true"></div>
+
+  <main>
+    <section class="section hero reveal in-view" id="fv">
+      <div class="container">
+        <div class="hero-card">
+          <div class="hero-head">
+            <img class="logo" src="images/logo.png" alt="ロゴ" />
+            <span class="eyebrow">AI担当 LP</span>
+          </div>
+
+          <div class="hero-layout">
+            <div class="reveal in-view" data-anim="left">
+              <p class="eyebrow">宮城県、秋田県、山形県に強い</p>
+              <h1 class="hero-title">マーケティング担当は採用するのではなく作る時代へ。マーケティングAIエージェントの作成</h1>
+              <p class="hero-sub">AI担当は、弊社が作成した本社独自のAIエージェントです。現場運用まで見据えた設計で、発信・分析・改善のサイクルを短くします。</p>
+              <ul class="hero-points">
+                <li>読み始めてすぐに、解決までの道筋が分かる構成</li>
+                <li>時間不足でも回る、運用負荷を増やさない運用設計</li>
+                <li>何から始めるか不明な状態を、実行手順に変換</li>
+              </ul>
+            </div>
+
+            <figure class="hero-media reveal in-view" data-anim="right" data-parallax="22">
+              <span class="float-tag tag-a">相談の見える化</span>
+              <span class="float-tag tag-b">実行計画を即提案</span>
+              <img src="images/ai-agent-lp/hero-consultation.png" alt="AI担当との相談イメージ" />
+              <figcaption>無料相談時に課題を可視化し、優先順位と実行順を短時間で共有します。</figcaption>
+            </figure>
+          </div>
+
+          <div class="cta-group reveal in-view">
+            <a class="btn btn-primary" href="https://example.com/line" target="_blank" rel="noopener noreferrer">LINEで無料相談をはじめる</a>
+            <a class="btn btn-secondary" href="https://example.com/gpt" target="_blank" rel="noopener noreferrer">無料AIマーケ診断を試す</a>
+          </div>
+
+          <div class="ticker" aria-hidden="true">
+            <div class="ticker-track">
+              <span>BTOB MARKETING</span><span>LEAD GENERATION</span><span>AI OPERATION SUPPORT</span><span>SENDAI FOCUSED</span><span>BTOB MARKETING</span><span>LEAD GENERATION</span><span>AI OPERATION SUPPORT</span><span>SENDAI FOCUSED</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="empathy">
+      <div class="container">
+        <p class="eyebrow reveal" data-anim="left">課題共感</p>
+        <h2 class="section-title reveal" data-anim="left">止まりやすい原因は、時間不足と着手順不明です</h2>
+        <p class="section-copy reveal">SNS発信やブログ投稿の発信が続かない。日々の対応で時間が足りず、何から始めるか不明なまま施策が停滞しやすい。こうした悩みを、実務目線で整理します。</p>
+        <div class="grid-3">
+          <article class="card reveal" data-delay="0.04">
+            <div class="icon-wrap"><img src="images/ai-agent-lp/icon-sns.svg" alt="SNS" /></div>
+            <h3>時間不足で更新停止</h3>
+            <p>日々の対応を優先するほど、投稿・導線改善・検証が後回しになる。</p>
+          </article>
+          <article class="card reveal" data-delay="0.12">
+            <div class="icon-wrap"><img src="images/ai-agent-lp/icon-data.svg" alt="分析" /></div>
+            <h3>初心者ゆえの設計迷子</h3>
+            <p>打ち手の選択肢が多すぎて、優先施策の決定と実行が止まりやすい。</p>
+          </article>
+          <article class="card reveal" data-delay="0.2">
+            <div class="icon-wrap"><img src="images/ai-agent-lp/icon-team.svg" alt="運用" /></div>
+            <h3>共通の着手順不明</h3>
+            <p>何から始めるか不明なまま、施策の優先順位が決まらず実行が止まる。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="value">
+      <div class="container">
+        <p class="eyebrow reveal" data-anim="left">提供価値</p>
+        <h2 class="section-title reveal" data-anim="left">「やるべきことが残る状態」から「回る状態」へ</h2>
+        <p class="section-copy reveal">ヒアリングから実行支援までを一気通貫で設計。問い合わせ導線の継続運用と改善サイクルを、運用負荷を増やさず実装します。</p>
+        <div class="grid-3">
+          <article class="card reveal" data-delay="0.05">
+            <div class="icon-wrap"><img src="images/ai-agent-lp/icon-design.svg" alt="設計" /></div>
+            <h3>施策設計</h3>
+            <p>対象者・導線・訴求軸を整理し、現場が迷わず運用できる方針を設計。</p>
+          </article>
+          <article class="card reveal" data-delay="0.13">
+            <div class="icon-wrap"><img src="images/ai-agent-lp/icon-create.svg" alt="作成" /></div>
+            <h3>制作補助</h3>
+            <p>投稿文・ブログ構成・案内文の初稿を短縮し、担当者の着手負荷を下げる。</p>
+          </article>
+          <article class="card reveal" data-delay="0.21">
+            <div class="icon-wrap"><img src="images/ai-agent-lp/icon-improve.svg" alt="改善" /></div>
+            <h3>改善支援</h3>
+            <p>反応データを週次で振り返り、問い合わせ増加につながる改善へ落とし込む。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="domain">
+      <div class="container split">
+        <div>
+          <p class="eyebrow reveal" data-anim="left">マーケティング対応領域</p>
+          <h2 class="section-title reveal" data-anim="left">BtoB集客の意思決定に合わせた提案</h2>
+          <p class="section-copy reveal">見込み顧客の不安解消と信頼形成の導線設計に重点を置きます。BtoBサービスの意思決定フローを反映した発信テンプレートを提供します。</p>
+          <div class="grid-domain">
+            <article class="card reveal" data-delay="0.04"><h3>訴求設計</h3><p>比較検討時の判断軸に合わせ、実績・方針の見せ方を最適化。</p></article>
+            <article class="card reveal" data-delay="0.12"><h3>導線最適化</h3><p>導入目的と成果指標のつながりを示し、問い合わせまでの離脱を減らす。</p></article>
+            <article class="card reveal" data-delay="0.2"><h3>継続運用体制</h3><p>現場で回る投稿運用カレンダーを整備し、施策停止を防ぐ。</p></article>
+          </div>
+        </div>
+
+        <aside class="panel reveal" data-anim="right" data-parallax="14">
+          <h3>地域強化ポイント</h3>
+          <p>東北エリアの商圏特性を踏まえたキーワード設計と、地域イベント連動の発信計画を組み込みます。BtoB集客で使える実行案に整理します。</p>
+          <p style="margin-top: 12px;">宮城県、秋田県、山形県に強い体制で、対面・オンライン双方の導線設計に対応します。</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="evidence">
+      <div class="container">
+        <p class="eyebrow reveal" data-anim="left">実績根拠</p>
+        <h2 class="section-title reveal" data-anim="left">リスティング広告運用支援で検証サイクルを最適化</h2>
+        <p class="section-copy reveal">売店業者の自社リスティング広告運用支援で、PDCA工数を23%削減。広告テキスト作成の効率化とABテスト実施により、有効訴求テキストの特定を進めました。</p>
+        <div class="grid-3">
+          <article class="card reveal" data-delay="0.04">
+            <h3>運用体制の改善</h3>
+            <p>売店業者の自社リスティング広告運用を対象に、日次・週次の確認手順を整理しました。</p>
+          </article>
+          <article class="card reveal" data-delay="0.12">
+            <h3>訴求検証の高速化</h3>
+            <p>広告テキスト作成を効率化し、ABテスト実施によって有効訴求テキストを特定しました。</p>
+          </article>
+          <article class="card reveal" data-delay="0.2">
+            <h3>成果につながる分析</h3>
+            <p>コンバージョンレート向上につながるキーワード・検索語句を特定し、検証サイクルの無駄削減に反映しました。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="flow">
+      <div class="container split">
+        <div>
+          <p class="eyebrow reveal" data-anim="left">診断から提案までの流れ</p>
+          <h2 class="section-title reveal" data-anim="left">覚えやすい4ステップで、実行まで迷わせない</h2>
+          <p class="section-copy reveal">現状確認から施策提案までを短期間で実施し、マーケティング担当が迷わず動ける「次にやること」を明確化します。初回相談で自社のリスティング広告運用で足りないところがわかり、10分で課題整理シートをお渡しします。</p>
+          <div class="grid-flow">
+            <article class="card flow-step reveal" data-delay="0.04"><h3>無料AIマーケ診断</h3><p>現状の発信状況と導線を確認し、課題を可視化します。</p></article>
+            <article class="card flow-step reveal" data-delay="0.12"><h3>ヒアリング</h3><p>目標・対象・体制を整理し、優先施策の仮説を設計します。</p></article>
+            <article class="card flow-step reveal" data-delay="0.2"><h3>試作提案</h3><p>投稿テンプレートと改善案を提示し、運用開始イメージを具体化します。</p></article>
+            <article class="card flow-step reveal" data-delay="0.28"><h3>実行サポート</h3><p>初期運用を伴走し、運用手順の定着までフォローします。</p></article>
+          </div>
+        </div>
+
+        <aside class="panel reveal" data-anim="right">
+          <figure class="flow-visual reveal" data-delay="0.1">
+            <img src="images/ai-agent-lp/diagnosis-dashboard.png" alt="診断ダッシュボードの分析イメージ" />
+          </figure>
+          <h3>ご案内事項</h3>
+          <p>データの集まり具合次第ではございますが、診断結果の精度を高めるために数週間の観測期間をご提案する場合があります。</p>
+          <p style="margin-top: 12px;">短期成果と中長期改善を両立できるよう、提案は実行可能性を最優先で作成します。</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="benefits">
+      <div class="container">
+        <p class="eyebrow reveal" data-anim="left">導入で得られるメリット</p>
+        <h2 class="section-title reveal" data-anim="left">導入後に覚えておきたい3つの変化</h2>
+        <div class="grid-benefits">
+          <article class="card benefit-card reveal" data-delay="0.04"><h3>運用工数の削減</h3><p>準備と確認の手間を減らし、担当者の工数負荷を軽くする。</p></article>
+          <article class="card benefit-card reveal" data-delay="0.12"><h3>問い合わせ数・CVRの改善</h3><p>導線改善と訴求最適化で、見込み顧客の行動率を上げる。</p></article>
+          <article class="card benefit-card reveal" data-delay="0.2"><h3>投稿継続率の向上</h3><p>実行手順を固定化し、初心者でも継続しやすい運用へ。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <p class="eyebrow reveal" data-anim="left">FAQ</p>
+        <h2 class="section-title reveal" data-anim="left">よくある質問</h2>
+        <div class="faq-list">
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button" aria-expanded="false">どんな課題に対応できますか？</button>
+            <div class="faq-a"><p>中小企業のBtoBサービスで、マーケティング施策の着手順不明・継続停滞・問い合わせ導線の弱さといった課題の整理と改善に対応しています。</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button" aria-expanded="false">AIの知識がなくても利用できますか？</button>
+            <div class="faq-a"><p>はい。操作手順を伴走しながら導入するため、専門知識がなくても運用開始できます。</p></div>
+          </div>
+          <div class="faq-item reveal" data-delay="0.08">
+            <button class="faq-q" type="button" aria-expanded="false">どのくらいで提案がもらえますか？</button>
+            <div class="faq-a"><p>ヒアリング後、最短で数営業日以内に初回提案を提示します。状況により調整します。</p></div>
+          </div>
+          <div class="faq-item reveal" data-delay="0.16">
+            <button class="faq-q" type="button" aria-expanded="false">オンライン対応は可能ですか？</button>
+            <div class="faq-a"><p>可能です。東北エリアは対面対応しつつ、全国向けにはオンラインで支援します。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cta">
+      <div class="container">
+        <div class="cta-final reveal" id="ctaPanel">
+          <p class="eyebrow" style="background: rgba(255,255,255,0.16); color: #fff; border-color: rgba(255,255,255,0.36);">最終CTA</p>
+          <h2 class="section-title" style="color:#fff; margin-top:14px;">次の一手を、無料相談か診断で今日決める</h2>
+          <p>まずはLINE無料相談で、時間不足と着手順不明を解消する実行手順を整理します。無料AIマーケ診断は補助導線として利用できます。</p>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="https://example.com/line" target="_blank" rel="noopener noreferrer">LINEで無料相談をはじめる</a>
+            <a class="btn btn-secondary" href="https://example.com/gpt" target="_blank" rel="noopener noreferrer">無料AIマーケ診断を試す</a>
+          </div>
+          <p class="note">費用発生は契約締結後です。見積もりのみOK、相談のみOK。無理な営業はありません。準備物は広告アカウントのみです。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>© AI Agent Support</small>
+    <nav class="footer-links" aria-label="フッターリンク">
+      <a href="./ai-agent-lp/about.html">会社概要</a>
+      <a href="./ai-agent-lp/privacy-policy.html">プライバシーポリシー</a>
+    </nav>
+  </footer>
+
+  <script>
+    (function () {
+      var revealEls = document.querySelectorAll('.reveal');
+      revealEls.forEach(function (el) {
+        var delay = el.getAttribute('data-delay');
+        if (delay) {
+          el.style.transitionDelay = delay + 's';
+        }
+      });
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+
+      revealEls.forEach(function (el) { io.observe(el); });
+
+      var faqButtons = document.querySelectorAll('.faq-q');
+      faqButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          var item = button.closest('.faq-item');
+          var isOpen = item.classList.contains('open');
+          item.classList.toggle('open');
+          button.setAttribute('aria-expanded', String(!isOpen));
+        });
+      });
+
+      var parallaxEls = document.querySelectorAll('[data-parallax]');
+      var cta = document.getElementById('ctaPanel');
+      var ticking = false;
+
+      function updateOnScroll() {
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        var progress = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+        document.documentElement.style.setProperty('--scroll', progress.toFixed(4));
+
+        var heroShift = Math.min(14, window.scrollY * 0.03);
+        document.documentElement.style.setProperty('--hero-shift', (-heroShift).toFixed(2) + 'px');
+
+        var vh = window.innerHeight;
+        parallaxEls.forEach(function (el) {
+          var speed = Number(el.getAttribute('data-parallax') || 0);
+          var rect = el.getBoundingClientRect();
+          var center = rect.top + rect.height / 2;
+          var distance = (center - vh / 2) / vh;
+          el.style.transform = 'translateY(' + (-distance * speed).toFixed(2) + 'px)';
+        });
+
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', function () {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(updateOnScroll);
+      }, { passive: true });
+
+      window.addEventListener('resize', function () {
+        window.requestAnimationFrame(updateOnScroll);
+      });
+
+      if (cta) {
+        cta.addEventListener('mousemove', function (e) {
+          var rect = cta.getBoundingClientRect();
+          var x = (e.clientX - rect.left) / rect.width - 0.5;
+          var y = (e.clientY - rect.top) / rect.height - 0.5;
+          cta.style.transform = 'perspective(900px) rotateX(' + (-y * 3.8).toFixed(2) + 'deg) rotateY(' + (x * 4.8).toFixed(2) + 'deg)';
+        });
+
+        cta.addEventListener('mouseleave', function () {
+          cta.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg)';
+        });
+      }
+
+      updateOnScroll();
+    })();
+  </script>
+</body>
+</html>
+
